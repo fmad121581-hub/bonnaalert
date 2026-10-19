@@ -8,22 +8,34 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Anek+Bangla:wdth,wght@75..100,500..800&family=Hind+Siliguri:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
 <style>
+/* Leaflet 1.9.4 stylesheet, inlined */
+.leaflet-pane, .leaflet-tile, .leaflet-marker-icon, .leaflet-marker-shadow, .leaflet-tile-container, .leaflet-pane > svg, .leaflet-pane > canvas, .leaflet-zoom-box, .leaflet-image-layer, .leaflet-layer { position: absolute; left: 0; top: 0; } .leaflet-container { overflow: hidden; } .leaflet-tile, .leaflet-marker-icon, .leaflet-marker-shadow { -webkit-user-select: none; -moz-user-select: none; user-select: none; -webkit-user-drag: none; } .leaflet-tile::selection { background: transparent; } .leaflet-safari .leaflet-tile { image-rendering: -webkit-optimize-contrast; } .leaflet-safari .leaflet-tile-container { width: 1600px; height: 1600px; -webkit-transform-origin: 0 0; } .leaflet-marker-icon, .leaflet-marker-shadow { display: block; } .leaflet-container .leaflet-overlay-pane svg { max-width: none !important; max-height: none !important; } .leaflet-container .leaflet-marker-pane img, .leaflet-container .leaflet-shadow-pane img, .leaflet-container .leaflet-tile-pane img, .leaflet-container img.leaflet-image-layer, .leaflet-container .leaflet-tile { max-width: none !important; max-height: none !important; width: auto; padding: 0; } .leaflet-container img.leaflet-tile { mix-blend-mode: plus-lighter; } .leaflet-container.leaflet-touch-zoom { -ms-touch-action: pan-x pan-y; touch-action: pan-x pan-y; } .leaflet-container.leaflet-touch-drag { -ms-touch-action: pinch-zoom; touch-action: none; touch-action: pinch-zoom; } .leaflet-container.leaflet-touch-drag.leaflet-touch-zoom { -ms-touch-action: none; touch-action: none; } .leaflet-container { -webkit-tap-highlight-color: transparent; } .leaflet-container a { -webkit-tap-highlight-color: rgba(51, 181, 229, 0.4); } .leaflet-tile { filter: inherit; visibility: hidden; } .leaflet-tile-loaded { visibility: inherit; } .leaflet-zoom-box { width: 0; height: 0; -moz-box-sizing: border-box; box-sizing: border-box; z-index: 800; } .leaflet-overlay-pane svg { -moz-user-select: none; } .leaflet-pane { z-index: 400; } .leaflet-tile-pane { z-index: 200; } .leaflet-overlay-pane { z-index: 400; } .leaflet-shadow-pane { z-index: 500; } .leaflet-marker-pane { z-index: 600; } .leaflet-tooltip-pane { z-index: 650; } .leaflet-popup-pane { z-index: 700; } .leaflet-map-pane canvas { z-index: 100; } .leaflet-map-pane svg { z-index: 200; } .leaflet-vml-shape { width: 1px; height: 1px; } .lvml { behavior: url(#default#VML); display: inline-block; position: absolute; } .leaflet-control { position: relative; z-index: 800; pointer-events: visiblePainted; pointer-events: auto; } .leaflet-top, .leaflet-bottom { position: absolute; z-index: 1000; pointer-events: none; } .leaflet-top { top: 0; } .leaflet-right { right: 0; } .leaflet-bottom { bottom: 0; } .leaflet-left { left: 0; } .leaflet-control { float: left; clear: both; } .leaflet-right .leaflet-control { float: right; } .leaflet-top .leaflet-control { margin-top: 10px; } .leaflet-bottom .leaflet-control { margin-bottom: 10px; } .leaflet-left .leaflet-control { margin-left: 10px; } .leaflet-right .leaflet-control { margin-right: 10px; } .leaflet-fade-anim .leaflet-popup { opacity: 0; -webkit-transition: opacity 0.2s linear; -moz-transition: opacity 0.2s linear; transition: opacity 0.2s linear; } .leaflet-fade-anim .leaflet-map-pane .leaflet-popup { opacity: 1; } .leaflet-zoom-animated { -webkit-transform-origin: 0 0; -ms-transform-origin: 0 0; transform-origin: 0 0; } svg.leaflet-zoom-animated { will-change: transform; } .leaflet-zoom-anim .leaflet-zoom-animated { -webkit-transition: -webkit-transform 0.25s cubic-bezier(0,0,0.25,1); -moz-transition: -moz-transform 0.25s cubic-bezier(0,0,0.25,1); transition: transform 0.25s cubic-bezier(0,0,0.25,1); } .leaflet-zoom-anim .leaflet-tile, .leaflet-pan-anim .leaflet-tile { -webkit-transition: none; -moz-transition: none; transition: none; } .leaflet-zoom-anim .leaflet-zoom-hide { visibility: hidden; } .leaflet-interactive { cursor: pointer; } .leaflet-grab { cursor: -webkit-grab; cursor: -moz-grab; cursor: grab; } .leaflet-crosshair, .leaflet-crosshair .leaflet-interactive { cursor: crosshair; } .leaflet-popup-pane, .leaflet-control { cursor: auto; } .leaflet-dragging .leaflet-grab, .leaflet-dragging .leaflet-grab .leaflet-interactive, .leaflet-dragging .leaflet-marker-draggable { cursor: move; cursor: -webkit-grabbing; cursor: -moz-grabbing; cursor: grabbing; } .leaflet-marker-icon, .leaflet-marker-shadow, .leaflet-image-layer, .leaflet-pane > svg path, .leaflet-tile-container { pointer-events: none; } .leaflet-marker-icon.leaflet-interactive, .leaflet-image-layer.leaflet-interactive, .leaflet-pane > svg path.leaflet-interactive, svg.leaflet-image-layer.leaflet-interactive path { pointer-events: visiblePainted; pointer-events: auto; } .leaflet-container { background: #ddd; outline-offset: 1px; } .leaflet-container a { color: #0078A8; } .leaflet-zoom-box { border: 2px dotted #38f; background: rgba(255,255,255,0.5); } .leaflet-container { font-family: "Helvetica Neue", Arial, Helvetica, sans-serif; font-size: 12px; font-size: 0.75rem; line-height: 1.5; } .leaflet-bar { box-shadow: 0 1px 5px rgba(0,0,0,0.65); border-radius: 4px; } .leaflet-bar a { background-color: #fff; border-bottom: 1px solid #ccc; width: 26px; height: 26px; line-height: 26px; display: block; text-align: center; text-decoration: none; color: black; } .leaflet-bar a, .leaflet-control-layers-toggle { background-position: 50% 50%; background-repeat: no-repeat; display: block; } .leaflet-bar a:hover, .leaflet-bar a:focus { background-color: #f4f4f4; } .leaflet-bar a:first-child { border-top-left-radius: 4px; border-top-right-radius: 4px; } .leaflet-bar a:last-child { border-bottom-left-radius: 4px; border-bottom-right-radius: 4px; border-bottom: none; } .leaflet-bar a.leaflet-disabled { cursor: default; background-color: #f4f4f4; color: #bbb; } .leaflet-touch .leaflet-bar a { width: 30px; height: 30px; line-height: 30px; } .leaflet-touch .leaflet-bar a:first-child { border-top-left-radius: 2px; border-top-right-radius: 2px; } .leaflet-touch .leaflet-bar a:last-child { border-bottom-left-radius: 2px; border-bottom-right-radius: 2px; } .leaflet-control-zoom-in, .leaflet-control-zoom-out { font: bold 18px 'Lucida Console', Monaco, monospace; text-indent: 1px; } .leaflet-touch .leaflet-control-zoom-in, .leaflet-touch .leaflet-control-zoom-out { font-size: 22px; } .leaflet-control-layers { box-shadow: 0 1px 5px rgba(0,0,0,0.4); background: #fff; border-radius: 5px; } .leaflet-control-layers-toggle { background-image: url(images/layers.png); width: 36px; height: 36px; } .leaflet-retina .leaflet-control-layers-toggle { background-image: url(images/layers-2x.png); background-size: 26px 26px; } .leaflet-touch .leaflet-control-layers-toggle { width: 44px; height: 44px; } .leaflet-control-layers .leaflet-control-layers-list, .leaflet-control-layers-expanded .leaflet-control-layers-toggle { display: none; } .leaflet-control-layers-expanded .leaflet-control-layers-list { display: block; position: relative; } .leaflet-control-layers-expanded { padding: 6px 10px 6px 6px; color: #333; background: #fff; } .leaflet-control-layers-scrollbar { overflow-y: scroll; overflow-x: hidden; padding-right: 5px; } .leaflet-control-layers-selector { margin-top: 2px; position: relative; top: 1px; } .leaflet-control-layers label { display: block; font-size: 13px; font-size: 1.08333em; } .leaflet-control-layers-separator { height: 0; border-top: 1px solid #ddd; margin: 5px -10px 5px -6px; } .leaflet-default-icon-path { background-image: url(images/marker-icon.png); } .leaflet-container .leaflet-control-attribution { background: #fff; background: rgba(255, 255, 255, 0.8); margin: 0; } .leaflet-control-attribution, .leaflet-control-scale-line { padding: 0 5px; color: #333; line-height: 1.4; } .leaflet-control-attribution a { text-decoration: none; } .leaflet-control-attribution a:hover, .leaflet-control-attribution a:focus { text-decoration: underline; } .leaflet-attribution-flag { display: inline !important; vertical-align: baseline !important; width: 1em; height: 0.6669em; } .leaflet-left .leaflet-control-scale { margin-left: 5px; } .leaflet-bottom .leaflet-control-scale { margin-bottom: 5px; } .leaflet-control-scale-line { border: 2px solid #777; border-top: none; line-height: 1.1; padding: 2px 5px 1px; white-space: nowrap; -moz-box-sizing: border-box; box-sizing: border-box; background: rgba(255, 255, 255, 0.8); text-shadow: 1px 1px #fff; } .leaflet-control-scale-line:not(:first-child) { border-top: 2px solid #777; border-bottom: none; margin-top: -2px; } .leaflet-control-scale-line:not(:first-child):not(:last-child) { border-bottom: 2px solid #777; } .leaflet-touch .leaflet-control-attribution, .leaflet-touch .leaflet-control-layers, .leaflet-touch .leaflet-bar { box-shadow: none; } .leaflet-touch .leaflet-control-layers, .leaflet-touch .leaflet-bar { border: 2px solid rgba(0,0,0,0.2); background-clip: padding-box; } .leaflet-popup { position: absolute; text-align: center; margin-bottom: 20px; } .leaflet-popup-content-wrapper { padding: 1px; text-align: left; border-radius: 12px; } .leaflet-popup-content { margin: 13px 24px 13px 20px; line-height: 1.3; font-size: 13px; font-size: 1.08333em; min-height: 1px; } .leaflet-popup-content p { margin: 17px 0; margin: 1.3em 0; } .leaflet-popup-tip-container { width: 40px; height: 20px; position: absolute; left: 50%; margin-top: -1px; margin-left: -20px; overflow: hidden; pointer-events: none; } .leaflet-popup-tip { width: 17px; height: 17px; padding: 1px; margin: -10px auto 0; pointer-events: auto; -webkit-transform: rotate(45deg); -moz-transform: rotate(45deg); -ms-transform: rotate(45deg); transform: rotate(45deg); } .leaflet-popup-content-wrapper, .leaflet-popup-tip { background: white; color: #333; box-shadow: 0 3px 14px rgba(0,0,0,0.4); } .leaflet-container a.leaflet-popup-close-button { position: absolute; top: 0; right: 0; border: none; text-align: center; width: 24px; height: 24px; font: 16px/24px Tahoma, Verdana, sans-serif; color: #757575; text-decoration: none; background: transparent; } .leaflet-container a.leaflet-popup-close-button:hover, .leaflet-container a.leaflet-popup-close-button:focus { color: #585858; } .leaflet-popup-scrolled { overflow: auto; } .leaflet-oldie .leaflet-popup-content-wrapper { -ms-zoom: 1; } .leaflet-oldie .leaflet-popup-tip { width: 24px; margin: 0 auto; -ms-filter: "progid:DXImageTransform.Microsoft.Matrix(M11=0.70710678, M12=0.70710678, M21=-0.70710678, M22=0.70710678)"; filter: progid:DXImageTransform.Microsoft.Matrix(M11=0.70710678, M12=0.70710678, M21=-0.70710678, M22=0.70710678); } .leaflet-oldie .leaflet-control-zoom, .leaflet-oldie .leaflet-control-layers, .leaflet-oldie .leaflet-popup-content-wrapper, .leaflet-oldie .leaflet-popup-tip { border: 1px solid #999; } .leaflet-div-icon { background: #fff; border: 1px solid #666; } .leaflet-tooltip { position: absolute; padding: 6px; background-color: #fff; border: 1px solid #fff; border-radius: 3px; color: #222; white-space: nowrap; -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none; pointer-events: none; box-shadow: 0 1px 3px rgba(0,0,0,0.4); } .leaflet-tooltip.leaflet-interactive { cursor: pointer; pointer-events: auto; } .leaflet-tooltip-top:before, .leaflet-tooltip-bottom:before, .leaflet-tooltip-left:before, .leaflet-tooltip-right:before { position: absolute; pointer-events: none; border: 6px solid transparent; background: transparent; content: ""; } .leaflet-tooltip-bottom { margin-top: 6px; } .leaflet-tooltip-top { margin-top: -6px; } .leaflet-tooltip-bottom:before, .leaflet-tooltip-top:before { left: 50%; margin-left: -6px; } .leaflet-tooltip-top:before { bottom: 0; margin-bottom: -12px; border-top-color: #fff; } .leaflet-tooltip-bottom:before { top: 0; margin-top: -12px; margin-left: -6px; border-bottom-color: #fff; } .leaflet-tooltip-left { margin-left: -6px; } .leaflet-tooltip-right { margin-left: 6px; } .leaflet-tooltip-left:before, .leaflet-tooltip-right:before { top: 50%; margin-top: -6px; } .leaflet-tooltip-left:before { right: 0; margin-right: -12px; border-left-color: #fff; } .leaflet-tooltip-right:before { left: 0; margin-left: -12px; border-right-color: #fff; } @media print { .leaflet-control { -webkit-print-color-adjust: exact; print-color-adjust: exact; } }
+</style>
+<style>
+/* layout: ward list + status on the left, map with a ward card on the right; stacks on phones */
 :root{
   --silt:#EAF0EE; --panel:#F7FAF9; --ink:#12302F; --muted:#56706C; --line:#C8D5D2;
-  --river:#1E6C8C; --river-soft:#CFE3EA;
-  --red:#B3261E; --orange:#D2621C; --yellow:#C9971A; --green:#4B8B5A;
+  --river:#1E6C8C; --river-soft:#CFE3EA; --hover:#EEF4F2; --map-bg:#DCE6E3; --paper:#FFFFFF;
+  --red:#B3261E; --orange:#D2621C; --yellow:#C9971A; --green:#4B8B5A; --on-level:#FFFFFF;
   --display:"Anek Bangla","Hind Siliguri",system-ui,sans-serif;
   --body:"Hind Siliguri",system-ui,sans-serif;
 }
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){
+  --silt:#0F1B1B; --panel:#152423; --ink:#E1ECE9; --muted:#9AB2AD; --line:#2C403E;
+  --river:#5DB3D3; --river-soft:#1D3A44; --hover:#1B2E2D; --map-bg:#0C1716; --paper:#1A2B2A;
+  --red:#E0574E; --orange:#E8873F; --yellow:#D9AE3A; --green:#6BAF7B; --on-level:#0F1B1B; color-scheme:dark } }
+:root[data-theme="dark"]{
+  --silt:#0F1B1B; --panel:#152423; --ink:#E1ECE9; --muted:#9AB2AD; --line:#2C403E;
+  --river:#5DB3D3; --river-soft:#1D3A44; --hover:#1B2E2D; --map-bg:#0C1716; --paper:#1A2B2A;
+  --red:#E0574E; --orange:#E8873F; --yellow:#D9AE3A; --green:#6BAF7B; --on-level:#0F1B1B; color-scheme:dark }
 *{box-sizing:border-box}
 html,body{margin:0;height:100%}
 body{background:var(--silt);color:var(--ink);font:16px/1.55 var(--body)}
 button{font:inherit;color:inherit}
 :focus-visible{outline:2px solid var(--river);outline-offset:2px}
 
-.app{display:grid;grid-template-columns:400px 1fr;grid-template-rows:auto minmax(0,1fr);grid-template-areas:"head main" "list main";height:100vh}
+.app{display:grid;grid-template-columns:400px 1fr;grid-template-rows:auto minmax(0,1fr);grid-template-areas:"head main" "list main";height:100%}
 .head{grid-area:head;padding:22px 24px 16px;background:var(--panel);border-right:1px solid var(--line)}
 .brand{display:flex;align-items:baseline;gap:10px;margin:0}
 .brand b{font:800 30px/1 var(--display);font-stretch:78%;letter-spacing:-.01em}
@@ -36,12 +48,12 @@ button{font:inherit;color:inherit}
 .meta{font-size:13px;color:var(--muted);margin-top:12px}
 .demo{display:inline-block;background:var(--ink);color:var(--silt);border-radius:4px;padding:0 7px;margin-right:6px;font-size:12.5px}
 .runs{display:flex;gap:6px;margin-top:12px}
-.runs a{font-size:13.5px;color:var(--ink);text-decoration:none;border:1px solid var(--line);border-radius:6px;padding:3px 10px}
-.runs a[aria-current=page]{background:var(--ink);color:var(--silt);border-color:var(--ink)}
+.runs button{font-size:13.5px;color:var(--ink);background:none;border:1px solid var(--line);border-radius:6px;padding:3px 10px;cursor:pointer}
+.runs button[aria-pressed=true]{background:var(--ink);color:var(--silt);border-color:var(--ink)}
 
 .list{grid-area:list;overflow:auto;min-height:0;border-top:1px solid var(--line);border-right:1px solid var(--line);background:var(--panel);margin:0;padding:0;list-style:none}
 .list button{display:grid;grid-template-columns:32px 1fr auto;gap:10px;align-items:center;width:100%;padding:10px 24px;border:0;border-bottom:1px solid var(--line);background:none;text-align:left;cursor:pointer}
-.list button:hover{background:#EEF4F2}
+.list button:hover{background:var(--hover)}
 .list button[aria-pressed=true]{background:var(--river-soft)}
 .rk{font:600 15px var(--display);color:var(--muted)}
 .wn{font-weight:500;line-height:1.3}
@@ -50,12 +62,18 @@ button{font:inherit;color:inherit}
 .dot{width:10px;height:10px;border-radius:50%}
 
 .main{grid-area:main;position:relative;min-height:0}
-#map{position:absolute;inset:0;background:#DCE6E3}
-.leaflet-container{font-family:var(--body)}
+#map{position:absolute;inset:0;background:var(--map-bg)}
+.leaflet-container{font-family:var(--body);background:var(--map-bg)}
+.leaflet-tooltip{background:var(--panel);color:var(--ink);border-color:var(--line)}
+.leaflet-tooltip-top:before{border-top-color:var(--panel)}.leaflet-tooltip-bottom:before{border-bottom-color:var(--panel)}.leaflet-tooltip-left:before{border-left-color:var(--panel)}.leaflet-tooltip-right:before{border-right-color:var(--panel)}
+.leaflet-bar a{background:var(--panel);color:var(--ink);border-bottom-color:var(--line)}
+.leaflet-control-attribution{background:color-mix(in srgb, var(--panel) 85%, transparent)!important;color:var(--muted)}
+.leaflet-control-attribution a{color:var(--river)}
+.rain .tick{fill:var(--muted);font-size:11px}.rain .grid{stroke:var(--line)}.rain .bar{fill:var(--river);opacity:.75}.rain .peak{opacity:1}.rain .lbl{fill:var(--ink);font-size:11.5px}
 
-.card{position:absolute;right:16px;bottom:16px;top:16px;width:380px;z-index:500;background:var(--panel);border:1px solid var(--line);border-radius:10px;overflow:auto;padding:20px 22px;box-shadow:0 8px 28px rgba(18,48,47,.16)}
+.card{position:absolute;right:16px;bottom:16px;top:16px;width:380px;z-index:500;background:var(--panel);border:1px solid var(--line);border-radius:10px;overflow:auto;padding:20px 22px;box-shadow:0 8px 28px color-mix(in srgb, var(--ink) 16%, transparent)}
 .card h2{font:700 26px/1.15 var(--display);font-stretch:85%;margin:0 0 8px}
-.badge{display:inline-block;color:#fff;border-radius:5px;padding:2px 10px;font-weight:600;font-size:14.5px}
+.badge{display:inline-block;color:var(--on-level);border-radius:5px;padding:2px 10px;font-weight:600;font-size:14.5px}
 .nums{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:18px 0 6px}
 .nums div{border-left:3px solid var(--line);padding-left:9px}
 .nums b{display:block;font:700 26px/1.1 var(--display);font-stretch:85%;white-space:nowrap}
@@ -66,7 +84,7 @@ button{font:inherit;color:inherit}
 .why li{display:grid;grid-template-columns:1fr 110px;gap:10px;align-items:center;font-size:14.5px;padding:4px 0}
 .why .bar{height:8px;border-radius:4px;background:var(--line);overflow:hidden}
 .why .bar i{display:block;height:100%;background:var(--ink)}
-.alert{white-space:pre-wrap;background:#fff;border:1px solid var(--line);border-left:4px solid var(--c);border-radius:6px;padding:12px 14px;font-size:15px;line-height:1.6}
+.alert{white-space:pre-wrap;background:var(--paper);border:1px solid var(--line);border-left:4px solid var(--c);border-radius:6px;padding:12px 14px;font-size:15px;line-height:1.6}
 .row{display:flex;gap:10px;align-items:center;margin-top:10px;flex-wrap:wrap}
 .btn{border:1px solid var(--ink);background:var(--ink);color:var(--silt);border-radius:6px;padding:6px 14px;cursor:pointer}
 .btn.ghost{background:none;color:var(--ink)}
@@ -94,10 +112,10 @@ button{font:inherit;color:inherit}
       <div class="levelbar" id="levelbar" aria-hidden="true"></div>
       <div class="legend" id="legend"></div>
       <div class="meta" id="meta"></div>
-      <nav class="runs" aria-label="কোন রান দেখবেন">
-        <a href="./" id="run-live">এখনকার পূর্বাভাস</a>
-        <a href="./?run=replay-2023-09-21" id="run-replay">২১ সেপ্টেম্বর ২০২৩ রিপ্লে</a>
-      </nav>
+      <div class="runs" role="group" aria-label="কোন রান দেখবেন">
+        <button type="button" id="run-live" data-run="">এখনকার পূর্বাভাস</button>
+        <button type="button" id="run-replay" data-run="replay-2023-09-21">২১ সেপ্টেম্বর ২০২৩ রিপ্লে</button>
+      </div>
     </header>
   <main class="main">
     <div id="map" role="region" aria-label="ওয়ার্ড ঝুঁকির মানচিত্র"></div>
@@ -131,27 +149,39 @@ function bnTime(iso){
   return `${bn(+d.slice(8))} ${MONTHS[+d.slice(5,7)-1]}, ${part} ${bn(h%12||12)}টা`;
 }
 
-let wards = [], hourly = null, layerById = {}, selected = null, map, geo;
-const RUN = /^[a-z0-9-]+$/.test(new URLSearchParams(location.search).get("run") || "") ? new URLSearchParams(location.search).get("run") : "";
-const BASE = RUN ? `data/${RUN}/` : "data/";
-document.getElementById(RUN ? "run-replay" : "run-live").setAttribute("aria-current", "page");
+let wards = [], hourly = null, layerById = {}, selected = null, map, geo, RUN = "", BASE = "data/";
+const tok = name => getComputedStyle(document.documentElement).getPropertyValue(name).trim();
+// GitHub Pages (and a local server) can load map tiles and offer CAP files; the Claude artifact frame cannot
+const OPEN_WEB = /github\.io$|^localhost$|^127\.0\.0\.1$/.test(location.hostname);
 
-Promise.all([
-  fetch(BASE + "wards_scored.geojson").then(r => r.json()),
-  fetch(BASE + "summary.json").then(r => r.json()),
-  fetch(BASE + "hourly.json").then(r => r.json()).catch(() => null)
-]).then(([gj, summary, hr]) => {
-  hourly = hr;
-  gj.features.forEach(f => { f.properties.drivers = parse(f.properties.drivers) || []; f.properties.contrib = parse(f.properties.contrib) || {}; });
-  wards = gj.features.slice().sort((a,b) => a.properties.rank - b.properties.rank);
-  renderHeader(summary);
-  renderMap(gj);
-  renderList();
-  select(wards[0].properties.ward_id, false);
-}).catch(err => {
-  document.getElementById("status").textContent = "ডেটা পাওয়া যায়নি। পাইপলাইন চালিয়ে docs/data ফোল্ডার তৈরি করুন।";
-  console.error(err);
+function load(run){
+  RUN = run; BASE = run ? `data/${run}/` : "data/";
+  document.querySelectorAll(".runs button").forEach(b => b.setAttribute("aria-pressed", b.dataset.run === run));
+  try { history.replaceState(null, "", run ? "#" + run : location.pathname + location.search); } catch (e) {}
+  return Promise.all([
+    fetch(BASE + "wards_scored.geojson").then(r => r.json()),
+    fetch(BASE + "summary.json").then(r => r.json()),
+    fetch(BASE + "hourly.json").then(r => r.json()).catch(() => null)
+  ]).then(([gj, summary, hr]) => {
+    hourly = hr; selected = null; layerById = {};
+    gj.features.forEach(f => { f.properties.drivers = parse(f.properties.drivers) || []; f.properties.contrib = parse(f.properties.contrib) || {}; });
+    wards = gj.features.slice().sort((a,b) => a.properties.rank - b.properties.rank);
+    renderHeader(summary);
+    renderMap(gj);
+    renderList();
+    select(wards[0].properties.ward_id, false);
+  }).catch(err => {
+    document.getElementById("status").textContent = "ডেটা পাওয়া যায়নি। পাইপলাইন চালিয়ে docs/data ফোল্ডার তৈরি করুন।";
+    console.error(err);
+  });
+}
+document.querySelector(".runs").addEventListener("click", e => {
+  const b = e.target.closest("button[data-run]"); if (b && b.dataset.run !== RUN) load(b.dataset.run);
 });
+document.getElementById("list").addEventListener("click", e => {
+  const b = e.target.closest("button[data-id]"); if (b) select(b.dataset.id, true);
+});
+load(/^#replay-[0-9-]+$/.test(location.hash) ? location.hash.slice(1) : "");
 
 function renderHeader(s){
   const c = s.counts, n = s.n_wards;
@@ -173,12 +203,16 @@ function renderHeader(s){
 }
 
 function renderMap(gj){
-  map = L.map("map", {zoomControl:true, attributionControl:true});
-  L.tileLayer("https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png", {
-    maxZoom:18, attribution:'&copy; OpenStreetMap contributors &copy; CARTO'
-  }).addTo(map);
+  if (!map) {
+    map = L.map("map", {zoomControl:true, attributionControl:true});
+    if (OPEN_WEB) L.tileLayer("https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png", {
+      maxZoom:18, attribution:'&copy; OpenStreetMap contributors &copy; CARTO'
+    }).addTo(map);
+    map.attributionControl.addAttribution("Rain: Open-Meteo · Wards: GADM");
+  }
+  if (geo) geo.remove();
   geo = L.geoJSON(gj, {
-    style: f => ({color:"#ffffff", weight:.8, fillColor:LEVELS[f.properties.level].hex, fillOpacity:.58}),
+    style: f => ({color:tok("--panel"), weight:.8, fillColor:tok("--" + f.properties.level), fillOpacity:.62}),
     onEachFeature: (f, layer) => {
       layerById[f.properties.ward_id] = layer;
       layer.bindTooltip(`${f.properties.name}: ${LEVELS[f.properties.level].bn}`, {sticky:true});
@@ -186,7 +220,6 @@ function renderMap(gj){
     }
   }).addTo(map);
   map.fitBounds(geo.getBounds(), fitOpts());
-  map.attributionControl.addAttribution("Rain: Open-Meteo");
 }
 
 // keep the selected area clear of the detail card on wide screens
@@ -201,16 +234,13 @@ function renderList(){
       <span class="rv"><span class="dot" style="background:${L_.c}"></span>${pct(p.risk)}</span>
     </button></li>`;
   }).join("");
-  document.getElementById("list").addEventListener("click", e => {
-    const b = e.target.closest("button[data-id]"); if (b) select(b.dataset.id, true);
-  });
 }
 
 function select(id, pan){
   if (selected && layerById[selected]) geo.resetStyle(layerById[selected]);
   selected = id;
   const layer = layerById[id];
-  layer.setStyle({color:"#12302F", weight:3});
+  layer.setStyle({color:tok("--ink"), weight:3});
   layer.bringToFront();
   if (pan) map.fitBounds(layer.getBounds(), Object.assign(fitOpts(), {maxZoom:14}));
   document.querySelectorAll(".list button").forEach(b => b.setAttribute("aria-pressed", b.dataset.id === id));
@@ -222,10 +252,10 @@ function rainStrip(id, level){
   if (!hourly || !hourly.rain_mm[id]) return "";
   const r = hourly.rain_mm[id], t = hourly.times, W = 336, H = 92, bw = W / r.length;
   const max = Math.max(4, ...r), pk = r.indexOf(Math.max(...r));
-  const bars = r.map((v,i) => `<rect x="${(i*bw).toFixed(1)}" y="${(H-18-(v/max)*(H-34)).toFixed(1)}" width="${(bw-.8).toFixed(1)}" height="${((v/max)*(H-34)).toFixed(1)}" fill="${i===pk?LEVELS[level].hex:"#1E6C8C"}" opacity="${i===pk?1:.75}"/>`).join("");
-  const ticks = [0,24,48].map(h => `<text x="${(h*bw+2).toFixed(1)}" y="${H-3}" font-size="11" fill="#56706C">${t[h]?bnTime(t[h]).split(",")[0]:""}</text><line x1="${(h*bw).toFixed(1)}" x2="${(h*bw).toFixed(1)}" y1="10" y2="${H-16}" stroke="#C8D5D2"/>`).join("");
+  const bars = r.map((v,i) => `<rect x="${(i*bw).toFixed(1)}" y="${(H-18-(v/max)*(H-34)).toFixed(1)}" width="${(bw-.8).toFixed(1)}" height="${((v/max)*(H-34)).toFixed(1)}" class="bar${i===pk?" peak":""}"${i===pk?` style="fill:var(--${level})"`:""}/>`).join("");
+  const ticks = [0,24,48].map(h => `<text class="tick" x="${(h*bw+2).toFixed(1)}" y="${H-3}">${t[h]?bnTime(t[h]).split(",")[0]:""}</text><line x1="${(h*bw).toFixed(1)}" x2="${(h*bw).toFixed(1)}" y1="10" y2="${H-16}" class="grid"/>`).join("");
   return `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="প্রতি ঘণ্টার বৃষ্টির পূর্বাভাস, সর্বোচ্চ ${bn(r[pk])} মিমি">${ticks}${bars}
-    <text x="${Math.min(W-90, pk*bw+6).toFixed(1)}" y="12" font-size="11.5" fill="#12302F">সর্বোচ্চ ${bn(r[pk])} মিমি/ঘণ্টা</text></svg>`;
+    <text class="lbl" x="${Math.min(W-90, pk*bw+6).toFixed(1)}" y="12">সর্বোচ্চ ${bn(r[pk])} মিমি/ঘণ্টা</text></svg>`;
 }
 
 function renderCard(p){
@@ -234,7 +264,7 @@ function renderCard(p){
   const cmax = Math.max(0.01, ...contrib.map(c => c[1]));
   const why = contrib.map(([k,v]) => `<li><span>${DRIVER_BN[k]}</span><span class="bar"><i style="width:${100*v/cmax}%"></i></span></li>`).join("")
     + `<li><span>জনগোষ্ঠীর ঝুঁকি (ঘনবসতি, নিচু এলাকা)</span><span class="bar"><i style="width:${100*p.vuln_norm}%;background:var(--river)"></i></span></li>`;
-  const capLink = (p.level === "red" || p.level === "orange") ? `<a class="btn ghost" href="${BASE}cap/${p.ward_id}.xml" download>CAP ফাইল নামান</a>` : "";
+  const capLink = OPEN_WEB && (p.level === "red" || p.level === "orange") ? `<a class="btn ghost" href="${BASE}cap/${p.ward_id}.xml" target="_blank" rel="noopener">CAP ফাইল খুলুন</a>` : "";
   document.getElementById("card").innerHTML = `
     <h2>${p.name}</h2>
     <span class="badge" style="background:${L_.c}">${L_.bn}: ${L_.act}</span>
@@ -251,7 +281,11 @@ function renderCard(p){
     <div class="row"><button class="btn" id="copy">বার্তা কপি করুন</button>${capLink}</div>` : `<p class="note">এই ওয়ার্ডের জন্য এখন কোনো সতর্কবার্তা নেই।</p>`}
     <p class="note">ঝুঁকি স্কোর ${pct(p.risk)} = সম্ভাবনা × জনগোষ্ঠীর ঝুঁকির ভার। প্রোটোটাইপ: করণীয় অংশ খসড়া, সরকারি নির্দেশনা দিয়ে হালনাগাদ করা হবে।</p>`;
   const copy = document.getElementById("copy");
-  if (copy) copy.onclick = () => navigator.clipboard.writeText(p.alert_bn).then(() => { copy.textContent = "কপি হয়েছে"; }, () => { copy.textContent = "কপি করা যায়নি"; });
+  if (copy) copy.onclick = () => {
+    const done = () => { copy.textContent = "কপি হয়েছে"; };
+    const fallback = () => { const r = document.createRange(); r.selectNodeContents(document.querySelector(".alert")); const sel = getSelection(); sel.removeAllRanges(); sel.addRange(r); copy.textContent = "লেখাটি নির্বাচিত, Ctrl+C চাপুন"; };
+    try { navigator.clipboard.writeText(p.alert_bn).then(done, fallback); } catch (e) { fallback(); }
+  };
 }
 </script>
 </body>
