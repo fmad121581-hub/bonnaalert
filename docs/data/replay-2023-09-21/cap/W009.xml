@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<alert xmlns="urn:oasis:names:tc:emergency:cap:1.2">
+  <identifier>bonnaalert-W009-20261019T093225+0000</identifier>
+  <sender>bonnaalert</sender>
+  <sent>2026-10-19T09:32:25+00:00</sent>
+  <status>Exercise</status>
+  <msgType>Alert</msgType>
+  <scope>Public</scope>
+  <info>
+    <language>bn-BD</language>
+    <category>Met</category>
+    <event>Urban flooding / waterlogging</event>
+    <urgency>Expected</urgency>
+    <severity>Moderate</severity>
+    <certainty>Possible</certainty>
+    <headline>Ward No-14 (part), Kafrul: কমলা: প্রস্তুতি নিন</headline>
+    <description>Ward No-14 (part), Kafrul: কমলা: প্রস্তুতি নিন
+আগামী ৭২ ঘণ্টায় জলাবদ্ধতার সম্ভাবনা প্রায় ৪৩%। সবচেয়ে বেশি বৃষ্টি ২০ সেপ্টেম্বর, রাত ১টা নাগাদ (২৪ ঘণ্টায় প্রায় ৮৮ মিমি)।
+কারণ: ভারী বৃষ্টির পূর্বাভাস, আর পাকা মাটি বেশি হওয়ায় পানি দ্রুত রাস্তায় জমবে; ঘন দালানকোঠা ও পাকা রাস্তা, বৃষ্টির পানি মাটিতে ঢুকতে পারে না।
+করণীয়: দোকানের মালামাল, বৈদ্যুতিক জিনিস ও জরুরি কাগজপত্র উঁচুতে তুলে রাখুন | পানি, শুকনো খাবার, ওষুধ ও টর্চ এক জায়গায় গুছিয়ে রাখুন | জমা পানিতে হাঁটা ও গাড়ি চালানো এড়িয়ে চলুন</description>
+    <area>
+      <areaDesc>Ward No-14 (part), Kafrul, Dhaka</areaDesc>
+      <polygon>23.80617,90.37459 23.80501,90.37394 23.80189,90.37816 23.80140,90.37760 23.79933,90.37846 23.79943,90.37948 23.79722,90.38017 23.79571,90.38027 23.79471,90.38090 23.79449,90.38026 23.79362,90.38053 23.79327,90.38000 23.79173,90.38029 23.79164,90.37971 23.79282,90.37896 23.79263,90.37714 23.79109,90.37726 23.79110,90.37644 23.78885,90.37701 23.78885,90.37643 23.80712,90.36855 23.80728,90.36972 23.80617,90.37459</polygon>
+    </area>
+  </info>
+</alert>

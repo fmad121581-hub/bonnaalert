@@ -76,9 +76,19 @@ def load_event_rain(path):
     return times, [rows[i] for i in idx], d.get("source", "")
 
 
-def fetch_replay(wards, path):
-    """Replay a past storm as if it were the forecast (wards in wards_static order)."""
+def fetch_replay(wards, path, scale_to=None):
+    """Replay a past storm as if it were the forecast (wards in wards_static order).
+
+    scale_to: multiply every ward's series by one factor so the city-median
+    wettest-24 h total equals this many mm (e.g. a station-observed total
+    when the gridded archive smooths a downpour away).
+    """
     times, per_ward, _ = load_event_rain(path)
+    if scale_to:
+        p24 = [pd.Series(r).rolling(24, min_periods=1).sum().max() for r in per_ward]
+        k = scale_to / float(np.median(p24))
+        per_ward = [[round(v * k, 1) for v in r] for r in per_ward]
+        print(f"Scaled rain by {k:.2f} so the city-median 24 h total is {scale_to} mm")
     if len(per_ward) != len(wards):
         raise SystemExit(f"Event file has {len(per_ward)} wards, ward table has {len(wards)}")
     rows, hourly = [], {}
@@ -104,14 +114,17 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--demo", action="store_true")
     ap.add_argument("--replay", help="event rain file, e.g. data/events/2023-09-21_rain_raw.json")
+    ap.add_argument("--scale-to", type=float, help="with --replay: scale rain so the city-median 24 h total is this many mm")
     args = ap.parse_args()
 
     import geopandas as gpd
     wards = gpd.read_file(config.WARDS_STATIC)
     if args.replay:
-        df, times, hourly = fetch_replay(wards, args.replay)
+        df, times, hourly = fetch_replay(wards, args.replay, args.scale_to)
         kind = json.loads(pathlib.Path(args.replay).read_text()).get("kind", "replay")
         source = "open-meteo" if kind == "forecast" else "replay:" + pathlib.Path(args.replay).name.split("_")[0]
+        if args.scale_to:
+            source += f":scaled-{args.scale_to:g}mm"
     elif args.demo:
         df, times, hourly = fetch_demo(wards)
         source = "demo"

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<alert xmlns="urn:oasis:names:tc:emergency:cap:1.2">
+  <identifier>bonnaalert-W080-20261019T093225+0000</identifier>
+  <sender>bonnaalert</sender>
+  <sent>2026-10-19T09:32:25+00:00</sent>
+  <status>Exercise</status>
+  <msgType>Alert</msgType>
+  <scope>Public</scope>
+  <info>
+    <language>bn-BD</language>
+    <category>Met</category>
+    <event>Urban flooding / waterlogging</event>
+    <urgency>Expected</urgency>
+    <severity>Moderate</severity>
+    <certainty>Likely</certainty>
+    <headline>Ward No-39: কমলা: প্রস্তুতি নিন</headline>
+    <description>Ward No-39: কমলা: প্রস্তুতি নিন
+আগামী ৭২ ঘণ্টায় জলাবদ্ধতার সম্ভাবনা প্রায় ৬১%। সবচেয়ে বেশি বৃষ্টি ২০ সেপ্টেম্বর, রাত ১টা নাগাদ (২৪ ঘণ্টায় প্রায় ১১৬ মিমি)।
+কারণ: ভারী বৃষ্টির পূর্বাভাস, আর পাকা মাটি বেশি হওয়ায় পানি দ্রুত রাস্তায় জমবে; এখানে ঘনবসতি ও ঝুঁকিপূর্ণ পরিবারের সংখ্যা বেশি।
+করণীয়: দোকানের মালামাল, বৈদ্যুতিক জিনিস ও জরুরি কাগজপত্র উঁচুতে তুলে রাখুন | পানি, শুকনো খাবার, ওষুধ ও টর্চ এক জায়গায় গুছিয়ে রাখুন | জমা পানিতে হাঁটা ও গাড়ি চালানো এড়িয়ে চলুন</description>
+    <area>
+      <areaDesc>Ward No-39, Dhaka</areaDesc>
+      <polygon>23.76457,90.38896 23.76495,90.39137 23.76627,90.39410 23.76536,90.39498 23.76556,90.39579 23.76309,90.39541 23.76292,90.39595 23.76138,90.39578 23.75654,90.39429 23.75384,90.39415 23.75255,90.39523 23.75166,90.39866 23.75084,90.39806 23.75033,90.39661 23.74847,90.39568 23.74765,90.39428 23.74985,90.39324 23.75110,90.38712 23.75790,90.39008 23.76126,90.38931 23.76457,90.38896</polygon>
+    </area>
+  </info>
+</alert>

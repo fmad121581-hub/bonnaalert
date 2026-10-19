@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<alert xmlns="urn:oasis:names:tc:emergency:cap:1.2">
+  <identifier>bonnaalert-W114-20261019T093225+0000</identifier>
+  <sender>bonnaalert</sender>
+  <sent>2026-10-19T09:32:25+00:00</sent>
+  <status>Exercise</status>
+  <msgType>Alert</msgType>
+  <scope>Public</scope>
+  <info>
+    <language>bn-BD</language>
+    <category>Met</category>
+    <event>Urban flooding / waterlogging</event>
+    <urgency>Expected</urgency>
+    <severity>Moderate</severity>
+    <certainty>Likely</certainty>
+    <headline>Ward No-40 (Part), Tejgaon: কমলা: প্রস্তুতি নিন</headline>
+    <description>Ward No-40 (Part), Tejgaon: কমলা: প্রস্তুতি নিন
+আগামী ৭২ ঘণ্টায় জলাবদ্ধতার সম্ভাবনা প্রায় ৫৬%। সবচেয়ে বেশি বৃষ্টি ২০ সেপ্টেম্বর, রাত ১টা নাগাদ (২৪ ঘণ্টায় প্রায় ৮৮ মিমি)।
+কারণ: ভারী বৃষ্টির পূর্বাভাস, আর পাকা মাটি বেশি হওয়ায় পানি দ্রুত রাস্তায় জমবে; এলাকাটি নিচু, চারপাশের পানি এদিকে গড়িয়ে আসে।
+করণীয়: দোকানের মালামাল, বৈদ্যুতিক জিনিস ও জরুরি কাগজপত্র উঁচুতে তুলে রাখুন | পানি, শুকনো খাবার, ওষুধ ও টর্চ এক জায়গায় গুছিয়ে রাখুন | জমা পানিতে হাঁটা ও গাড়ি চালানো এড়িয়ে চলুন</description>
+    <area>
+      <areaDesc>Ward No-40 (Part), Tejgaon, Dhaka</areaDesc>
+      <polygon>23.76546,90.38328 23.76457,90.38896 23.75850,90.38998 23.75811,90.38396 23.76546,90.38328</polygon>
+    </area>
+  </info>
+</alert>

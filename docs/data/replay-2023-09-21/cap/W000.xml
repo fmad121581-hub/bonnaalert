@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<alert xmlns="urn:oasis:names:tc:emergency:cap:1.2">
+  <identifier>bonnaalert-W000-20261019T093225+0000</identifier>
+  <sender>bonnaalert</sender>
+  <sent>2026-10-19T09:32:25+00:00</sent>
+  <status>Exercise</status>
+  <msgType>Alert</msgType>
+  <scope>Public</scope>
+  <info>
+    <language>bn-BD</language>
+    <category>Met</category>
+    <event>Urban flooding / waterlogging</event>
+    <urgency>Expected</urgency>
+    <severity>Severe</severity>
+    <certainty>Likely</certainty>
+    <headline>Ward No-63 (Part), Bangshal: লাল: এখনই ব্যবস্থা নিন</headline>
+    <description>Ward No-63 (Part), Bangshal: লাল: এখনই ব্যবস্থা নিন
+আগামী ৭২ ঘণ্টায় জলাবদ্ধতার সম্ভাবনা প্রায় ৭৯%। সবচেয়ে বেশি বৃষ্টি ২০ সেপ্টেম্বর, রাত ১টা নাগাদ (২৪ ঘণ্টায় প্রায় ১১৬ মিমি)।
+কারণ: ভারী বৃষ্টির পূর্বাভাস, আর পাকা মাটি বেশি হওয়ায় পানি দ্রুত রাস্তায় জমবে; এলাকাটি নিচু, চারপাশের পানি এদিকে গড়িয়ে আসে।
+করণীয়: মালামাল, ওষুধ ও কাগজপত্র এখনই উঁচুতে সরান | জমা পানিতে পড়ে থাকা বা কাছে থাকা বিদ্যুতের তার, খুঁটি ও খোলা ম্যানহোল থেকে দূরে থাকুন | বয়স্ক, শিশু ও অসুস্থ প্রতিবেশীর খোঁজ নিন</description>
+    <area>
+      <areaDesc>Ward No-63 (Part), Bangshal, Dhaka</areaDesc>
+      <polygon>23.71855,90.39970 23.71828,90.39839 23.72001,90.39836 23.72233,90.39986 23.72393,90.40031 23.72355,90.40252 23.72305,90.40072 23.72116,90.40069 23.72067,90.40018 23.71855,90.39970</polygon>
+    </area>
+  </info>
+</alert>

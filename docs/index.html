@@ -205,7 +205,9 @@ function renderHeader(s){
   const local = bnTime(run.slice(0,16)) + " " + bn(run.slice(14,16)) + " মিনিট";
   document.getElementById("meta").innerHTML =
     (s.forecast_source === "demo" ? `<span class="demo">ডেমো ডেটা</span>` : "") +
-    (s.forecast_source.startsWith("replay") ? `<span class="demo">আর্কাইভ বৃষ্টি (ERA5)</span>১৯–২২ সেপ্টেম্বর ২০২৩ এর বৃষ্টি দিয়ে চালানো। ` : `হালনাগাদ ${local}। `) +
+    (s.forecast_source.startsWith("replay") ? (s.forecast_source.includes("scaled")
+      ? `<span class="demo">রিপ্লে</span>১৯–২২ সেপ্টেম্বর ২০২৩ এর ERA5 বৃষ্টির ধরন, BMD-র মাপা ১১৩ মিমি অনুযায়ী বাড়ানো। `
+      : `<span class="demo">আর্কাইভ বৃষ্টি (ERA5)</span>১৯–২২ সেপ্টেম্বর ২০২৩ এর বৃষ্টি দিয়ে চালানো। `) : `হালনাগাদ ${local}। `) +
     `মডেল: ${s.model}`;
 }
 

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<alert xmlns="urn:oasis:names:tc:emergency:cap:1.2">
+  <identifier>bonnaalert-W110-20261019T093225+0000</identifier>
+  <sender>bonnaalert</sender>
+  <sent>2026-10-19T09:32:25+00:00</sent>
+  <status>Exercise</status>
+  <msgType>Alert</msgType>
+  <scope>Public</scope>
+  <info>
+    <language>bn-BD</language>
+    <category>Met</category>
+    <event>Urban flooding / waterlogging</event>
+    <urgency>Expected</urgency>
+    <severity>Moderate</severity>
+    <certainty>Possible</certainty>
+    <headline>Ward No-20 (Part), Gulshan: কমলা: প্রস্তুতি নিন</headline>
+    <description>Ward No-20 (Part), Gulshan: কমলা: প্রস্তুতি নিন
+আগামী ৭২ ঘণ্টায় জলাবদ্ধতার সম্ভাবনা প্রায় ৪৬%। সবচেয়ে বেশি বৃষ্টি ২০ সেপ্টেম্বর, রাত ১টা নাগাদ (২৪ ঘণ্টায় প্রায় ৮৮ মিমি)।
+কারণ: ভারী বৃষ্টির পূর্বাভাস, আর পাকা মাটি বেশি হওয়ায় পানি দ্রুত রাস্তায় জমবে।
+করণীয়: দোকানের মালামাল, বৈদ্যুতিক জিনিস ও জরুরি কাগজপত্র উঁচুতে তুলে রাখুন | পানি, শুকনো খাবার, ওষুধ ও টর্চ এক জায়গায় গুছিয়ে রাখুন | জমা পানিতে হাঁটা ও গাড়ি চালানো এড়িয়ে চলুন</description>
+    <area>
+      <areaDesc>Ward No-20 (Part), Gulshan, Dhaka</areaDesc>
+      <polygon>23.77811,90.39783 23.78608,90.39906 23.78531,90.40281 23.78563,90.40438 23.78523,90.40650 23.78446,90.40861 23.78270,90.40990 23.78254,90.41086 23.78068,90.41058 23.77557,90.41325 23.77349,90.41371 23.77347,90.41351 23.77256,90.41468 23.77193,90.41192 23.77219,90.40881 23.77320,90.40396 23.77287,90.40168 23.77334,90.40003 23.77569,90.39869 23.77806,90.39819 23.77811,90.39783</polygon>
+    </area>
+  </info>
+</alert>

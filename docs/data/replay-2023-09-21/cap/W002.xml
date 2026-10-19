@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<alert xmlns="urn:oasis:names:tc:emergency:cap:1.2">
+  <identifier>bonnaalert-W002-20261019T093225+0000</identifier>
+  <sender>bonnaalert</sender>
+  <sent>2026-10-19T09:32:25+00:00</sent>
+  <status>Exercise</status>
+  <msgType>Alert</msgType>
+  <scope>Public</scope>
+  <info>
+    <language>bn-BD</language>
+    <category>Met</category>
+    <event>Urban flooding / waterlogging</event>
+    <urgency>Expected</urgency>
+    <severity>Severe</severity>
+    <certainty>Likely</certainty>
+    <headline>Ward No-68 (part): লাল: এখনই ব্যবস্থা নিন</headline>
+    <description>Ward No-68 (part): লাল: এখনই ব্যবস্থা নিন
+আগামী ৭২ ঘণ্টায় জলাবদ্ধতার সম্ভাবনা প্রায় ৬১%। সবচেয়ে বেশি বৃষ্টি ২০ সেপ্টেম্বর, রাত ১টা নাগাদ (২৪ ঘণ্টায় প্রায় ১১৬ মিমি)।
+কারণ: ভারী বৃষ্টির পূর্বাভাস, আর পাকা মাটি বেশি হওয়ায় পানি দ্রুত রাস্তায় জমবে; ঘন দালানকোঠা ও পাকা রাস্তা, বৃষ্টির পানি মাটিতে ঢুকতে পারে না।
+করণীয়: মালামাল, ওষুধ ও কাগজপত্র এখনই উঁচুতে সরান | জমা পানিতে পড়ে থাকা বা কাছে থাকা বিদ্যুতের তার, খুঁটি ও খোলা ম্যানহোল থেকে দূরে থাকুন | বয়স্ক, শিশু ও অসুস্থ প্রতিবেশীর খোঁজ নিন</description>
+    <area>
+      <areaDesc>Ward No-68 (part), Dhaka</areaDesc>
+      <polygon>23.71336,90.40409 23.71381,90.40284 23.71514,90.40292 23.71547,90.40262 23.71729,90.40234 23.71756,90.40312 23.71750,90.40695 23.71701,90.40682 23.71717,90.40647 23.71604,90.40662 23.71622,90.40575 23.71593,90.40505 23.71549,90.40508 23.71490,90.40578 23.71406,90.40569 23.71377,90.40492 23.71446,90.40505 23.71449,90.40481 23.71365,90.40467 23.71336,90.40409</polygon>
+    </area>
+  </info>
+</alert>

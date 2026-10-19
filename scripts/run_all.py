@@ -21,6 +21,8 @@ if __name__ == "__main__":
     extra = ["--demo"] if "--demo" in sys.argv else []
     if "--replay" in sys.argv:
         extra = ["--replay", str(Path(sys.argv[sys.argv.index("--replay") + 1]).resolve())]
+        if "--scale-to" in sys.argv:
+            extra += ["--scale-to", sys.argv[sys.argv.index("--scale-to") + 1]]
     run("fetch_forecast.py", *extra)
     run("score.py")
     run("alerts.py", *(["--llm"] if "--llm" in sys.argv else []))

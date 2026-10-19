@@ -1,0 +1,55 @@
+{
+ "n_points": 49,
+ "n_hot_wards": 32,
+ "n_city_wards": 115,
+ "n_city_hot": 28,
+ "unmatched": [
+  "Green Road"
+ ],
+ "auc": [
+  {
+   "score": "v0 at 113 mm / 24 h (Sep 2023 BMD total), probability",
+   "auc": 0.524
+  },
+  {
+   "score": "v0 at 113 mm / 24 h (Sep 2023 BMD total), risk = prob x vulnerability",
+   "auc": 0.524
+  },
+  {
+   "score": "v0 at 60 mm / 24 h, probability",
+   "auc": 0.518
+  },
+  {
+   "score": "v0 at 60 mm / 24 h, risk = prob x vulnerability",
+   "auc": 0.526
+  },
+  {
+   "score": "static hazard x exposure x vulnerability index",
+   "auc": 0.488
+  },
+  {
+   "score": "curve number (imperviousness)",
+   "auc": 0.443
+  },
+  {
+   "score": "TWI (wetness)",
+   "auc": 0.539
+  },
+  {
+   "score": "lower elevation",
+   "auc": 0.413
+  },
+  {
+   "score": "built-up share",
+   "auc": 0.479
+  },
+  {
+   "score": "vulnerability",
+   "auc": 0.477
+  }
+ ],
+ "headline_ci": [
+  0.4,
+  0.65
+ ]
+}

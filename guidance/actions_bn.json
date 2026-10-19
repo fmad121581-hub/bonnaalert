@@ -1,6 +1,11 @@
 {
-  "_status": "DRAFT. Replace these lines with wording taken from official BWDB / DDM / city corporation guidance and record each source below before public use.",
-  "_sources": [],
+  "_status": "Prototype wording. Actions are paraphrased from the sources below; the 999 number is the national emergency service. Ask DDM / DNCC / DSCC to review before any public alert goes out.",
+  "_sources": [
+    {"title": "বন্যার প্রস্তুতি ও করণীয়, দ্য ডেইলি স্টার বাংলা, ২২ আগস্ট ২০২৪", "url": "https://bangla.thedailystar.net/life-living/news-607936"},
+    {"title": "Three of a family among 4 electrocuted in Dhaka (Mirpur, 21 Sep 2023), Jago News", "url": "https://www.jagonews24.com/en/national/news/70648"},
+    {"title": "Standing Orders on Disaster 2019, Ministry of Disaster Management and Relief", "url": "https://www.adrc.asia/documents/dm_information/BGD_SOD2019_English_FINAL.pdf"},
+    {"title": "National Emergency Service 999", "url": "https://999.gov.bd"}
+  ],
   "drivers": {
     "log_runoff": "ভারী বৃষ্টির পূর্বাভাস, আর পাকা মাটি বেশি হওয়ায় পানি দ্রুত রাস্তায় জমবে",
     "twi_z": "এলাকাটি নিচু, চারপাশের পানি এদিকে গড়িয়ে আসে",
@@ -10,17 +15,18 @@
   },
   "actions": {
     "yellow": [
-      "বৃষ্টির খবর খেয়াল রাখুন",
-      "বাড়ি ও দোকানের সামনের ড্রেনের মুখ পরিষ্কার রাখুন"
+      "বৃষ্টির খবর আর স্থানীয় সতর্কবার্তা খেয়াল রাখুন",
+      "বাড়ি ও দোকানের সামনের ড্রেনের মুখ পরিষ্কার রাখুন",
+      "ফোন চার্জ দিয়ে রাখুন"
     ],
     "orange": [
-      "দোকানের মালামাল ও জরুরি কাগজপত্র উঁচু জায়গায় তুলে রাখুন",
-      "নিচতলার বিদ্যুৎ সংযোগ ও মিটারের দিকে খেয়াল রাখুন",
+      "দোকানের মালামাল, বৈদ্যুতিক জিনিস ও জরুরি কাগজপত্র উঁচুতে তুলে রাখুন",
+      "পানি, শুকনো খাবার, ওষুধ ও টর্চ এক জায়গায় গুছিয়ে রাখুন",
       "জমা পানিতে হাঁটা ও গাড়ি চালানো এড়িয়ে চলুন"
     ],
     "red": [
       "মালামাল, ওষুধ ও কাগজপত্র এখনই উঁচুতে সরান",
-      "খোলা ম্যানহোল আর পানিতে পড়া বিদ্যুতের তার থেকে দূরে থাকুন",
+      "জমা পানিতে পড়ে থাকা বা কাছে থাকা বিদ্যুতের তার, খুঁটি ও খোলা ম্যানহোল থেকে দূরে থাকুন",
       "বয়স্ক, শিশু ও অসুস্থ প্রতিবেশীর খোঁজ নিন",
       "জরুরি প্রয়োজনে ৯৯৯ নম্বরে ফোন করুন"
     ]
