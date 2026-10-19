@@ -154,14 +154,19 @@ const tok = name => getComputedStyle(document.documentElement).getPropertyValue(
 // GitHub Pages (and a local server) can load map tiles and offer CAP files; the Claude artifact frame cannot
 const OPEN_WEB = /github\.io$|^localhost$|^127\.0\.0\.1$/.test(location.hostname);
 
+// data bundled into the page (artifact build) wins; otherwise fetch the files next to the page
+const getJSON = path => (window.BONNA_DATA && window.BONNA_DATA[path])
+  ? Promise.resolve(window.BONNA_DATA[path])
+  : fetch(path).then(r => { if (!r.ok) throw new Error(path + " " + r.status); return r.json(); });
+
 function load(run){
   RUN = run; BASE = run ? `data/${run}/` : "data/";
   document.querySelectorAll(".runs button").forEach(b => b.setAttribute("aria-pressed", b.dataset.run === run));
   try { history.replaceState(null, "", run ? "#" + run : location.pathname + location.search); } catch (e) {}
   return Promise.all([
-    fetch(BASE + "wards_scored.geojson").then(r => r.json()),
-    fetch(BASE + "summary.json").then(r => r.json()),
-    fetch(BASE + "hourly.json").then(r => r.json()).catch(() => null)
+    getJSON(BASE + "wards_scored.geojson"),
+    getJSON(BASE + "summary.json"),
+    getJSON(BASE + "hourly.json").catch(() => null)
   ]).then(([gj, summary, hr]) => {
     hourly = hr; selected = null; layerById = {};
     gj.features.forEach(f => { f.properties.drivers = parse(f.properties.drivers) || []; f.properties.contrib = parse(f.properties.contrib) || {}; });
@@ -181,7 +186,9 @@ document.querySelector(".runs").addEventListener("click", e => {
 document.getElementById("list").addEventListener("click", e => {
   const b = e.target.closest("button[data-id]"); if (b) select(b.dataset.id, true);
 });
-load(/^#replay-[0-9-]+$/.test(location.hash) ? location.hash.slice(1) : "");
+const runFromHash = () => /^#replay-[0-9-]+$/.test(location.hash) ? location.hash.slice(1) : "";
+window.addEventListener("hashchange", () => { if (runFromHash() !== RUN) load(runFromHash()); });
+load(runFromHash());
 
 function renderHeader(s){
   const c = s.counts, n = s.n_wards;
@@ -205,8 +212,8 @@ function renderHeader(s){
 function renderMap(gj){
   if (!map) {
     map = L.map("map", {zoomControl:true, attributionControl:true});
-    if (OPEN_WEB) L.tileLayer("https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png", {
-      maxZoom:18, attribution:'&copy; OpenStreetMap contributors &copy; CARTO'
+    if (OPEN_WEB) L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
+      maxZoom:18, opacity:.55, attribution:'&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
     }).addTo(map);
     map.attributionControl.addAttribution("Rain: Open-Meteo · Wards: GADM");
   }
