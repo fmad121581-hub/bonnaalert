@@ -1,0 +1,76 @@
+{
+ "run_utc": "2026-10-19T02:38Z",
+ "model": "v0 expert-prior logistic (not yet calibrated)",
+ "forecast_source": "replay:2023-09-21",
+ "n_wards": 203,
+ "counts": {
+  "red": 0,
+  "orange": 0,
+  "yellow": 8,
+  "green": 195
+ },
+ "people_orange_red": 0,
+ "city_p24_max": 28.0,
+ "top": [
+  {
+   "ward_id": "W196",
+   "name": "Mahmudpur",
+   "risk": 0.314,
+   "level": "yellow"
+  },
+  {
+   "ward_id": "W043",
+   "name": "Ward No-76 (Part), Jatrabari",
+   "risk": 0.302,
+   "level": "yellow"
+  },
+  {
+   "ward_id": "W122",
+   "name": "Zinjira",
+   "risk": 0.245,
+   "level": "yellow"
+  },
+  {
+   "ward_id": "W071",
+   "name": "Ward No-88",
+   "risk": 0.24,
+   "level": "yellow"
+  },
+  {
+   "ward_id": "W021",
+   "name": "Ward No-92",
+   "risk": 0.212,
+   "level": "yellow"
+  },
+  {
+   "ward_id": "W076",
+   "name": "Shyampur",
+   "risk": 0.196,
+   "level": "yellow"
+  },
+  {
+   "ward_id": "W084",
+   "name": "Sultanganj",
+   "risk": 0.19,
+   "level": "yellow"
+  },
+  {
+   "ward_id": "W000",
+   "name": "Ward No-63 (Part), Bangshal",
+   "risk": 0.15,
+   "level": "yellow"
+  },
+  {
+   "ward_id": "W029",
+   "name": "Ward No-65",
+   "risk": 0.147,
+   "level": "green"
+  },
+  {
+   "ward_id": "W062",
+   "name": "Ward No-80 (Part), Gendaria",
+   "risk": 0.135,
+   "level": "green"
+  }
+ ]
+}

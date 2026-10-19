@@ -1,0 +1,10 @@
+numpy
+pandas
+geopandas
+pyogrio
+shapely
+rasterio
+rasterstats
+requests
+scikit-learn
+xgboost
