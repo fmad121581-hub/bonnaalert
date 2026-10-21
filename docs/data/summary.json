@@ -1,5 +1,5 @@
 {
- "run_utc": "2026-10-20T15:52Z",
+ "run_utc": "2026-10-21T02:04Z",
  "model": "v0 expert-prior logistic (not yet calibrated)",
  "forecast_source": "open-meteo",
  "n_wards": 203,
@@ -10,7 +10,7 @@
   "green": 203
  },
  "people_orange_red": 0,
- "city_p24_max": 0.1,
+ "city_p24_max": 0.0,
  "top": [
   {
    "ward_id": "W122",
