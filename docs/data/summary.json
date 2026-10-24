@@ -1,5 +1,5 @@
 {
- "run_utc": "2026-10-23T15:57Z",
+ "run_utc": "2026-10-24T02:02Z",
  "model": "v0 expert-prior logistic (not yet calibrated)",
  "forecast_source": "open-meteo",
  "n_wards": 203,
