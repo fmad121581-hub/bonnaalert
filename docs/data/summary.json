@@ -1,5 +1,5 @@
 {
- "run_utc": "2026-10-26T01:49Z",
+ "run_utc": "2026-10-26T17:41Z",
  "model": "v0 expert-prior logistic (not yet calibrated)",
  "forecast_source": "open-meteo",
  "n_wards": 203,
@@ -10,12 +10,12 @@
   "green": 203
  },
  "people_orange_red": 0,
- "city_p24_max": 11.9,
+ "city_p24_max": 9.1,
  "top": [
   {
    "ward_id": "W196",
    "name": "Mahmudpur",
-   "risk": 0.061,
+   "risk": 0.048,
    "level": "green"
   },
   {
@@ -39,7 +39,7 @@
   {
    "ward_id": "W071",
    "name": "Ward No-88",
-   "risk": 0.021,
+   "risk": 0.022,
    "level": "green"
   },
   {
@@ -49,15 +49,15 @@
    "level": "green"
   },
   {
-   "ward_id": "W021",
-   "name": "Ward No-92",
+   "ward_id": "W084",
+   "name": "Sultanganj",
    "risk": 0.016,
    "level": "green"
   },
   {
-   "ward_id": "W084",
-   "name": "Sultanganj",
-   "risk": 0.016,
+   "ward_id": "W021",
+   "name": "Ward No-92",
+   "risk": 0.015,
    "level": "green"
   },
   {
