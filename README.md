@@ -1,7 +1,12 @@
 # BonnaAlert
 
 Ward-level flood and waterlogging early warning for Dhaka, in Bangla.
-Entry for the International AI Builders Congress 2026, ClimateSphere AI → Climate Shield.
+
+**Live dashboard:** https://fmad121581-hub.github.io/bonnaalert/ · storm replay: [`#replay-2023-09-21`](https://fmad121581-hub.github.io/bonnaalert/#replay-2023-09-21)
+
+> **Status: personal prototype.** This is not an official warning service. The model is
+> uncalibrated (v0 expert priors), and the Bangla guidance has not been reviewed by DDM or the
+> city corporations. For real warnings, follow BMD and DDM.
 
 Twice a day the pipeline pulls a 72-hour rainfall forecast for every ward, turns it into
 a flood probability, weights it by how vulnerable the ward's people are, and writes a
@@ -73,6 +78,25 @@ The dashboard shows it under "২১ সেপ্টেম্বর ২০২৩
 Terrain and land cover do not separate waterlogging hotspots inside the city corporations; drain capacity and
 blockage do, and those are not in public data. Next step: city corporation complaint and hotspot records as
 labels and features. Scripts: `scripts/build_labels.py`, `scripts/validate_hotspots.py`; data in `data/validation/`.
+
+`train_trigger.py` has not been run, on purpose. Labels from one radar event were rejected (see above), and
+a model fitted to them would look better on paper without being more useful. `models/` stays empty until
+better labels exist.
+
+## Where it goes next
+
+The pipeline is built so the model can improve with every storm:
+
+1. After each heavy-rain event, collect DNCC/DSCC complaint and hotspot records as ward-level labels.
+2. Add the event to `data/training/` and rerun `train_trigger.py` (XGBoost, monotone constraints,
+   leave-one-event-out).
+3. The trained model replaces v0 only if it beats v0 on held-out storms.
+
+Before any of this reaches the public, the guidance in `guidance/actions_bn.json` needs DDM or city-corporation
+review, and a small pilot (a handful of wards over one monsoon) would show whether people act on the alerts.
+
+Possible sustainability model: free alerts for residents, with ward-level risk data offered to MFIs, NGOs,
+insurers and the city corporations.
 
 ## Publish
 
