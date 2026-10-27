@@ -1,22 +1,22 @@
 {
- "run_utc": "2026-10-27T02:29Z",
+ "run_utc": "2026-10-27T16:53Z",
  "model": "v0 expert-prior logistic (not yet calibrated)",
  "forecast_source": "open-meteo",
  "n_wards": 203,
  "counts": {
   "red": 0,
   "orange": 0,
-  "yellow": 0,
-  "green": 203
+  "yellow": 1,
+  "green": 202
  },
  "people_orange_red": 0,
- "city_p24_max": 17.6,
+ "city_p24_max": 14.3,
  "top": [
   {
    "ward_id": "W196",
    "name": "Mahmudpur",
-   "risk": 0.061,
-   "level": "green"
+   "risk": 0.205,
+   "level": "yellow"
   },
   {
    "ward_id": "W122",
@@ -63,7 +63,7 @@
   {
    "ward_id": "W021",
    "name": "Ward No-92",
-   "risk": 0.013,
+   "risk": 0.014,
    "level": "green"
   },
   {
