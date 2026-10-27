@@ -30,5 +30,31 @@
       "বয়স্ক, শিশু ও অসুস্থ প্রতিবেশীর খোঁজ নিন",
       "জরুরি প্রয়োজনে ৯৯৯ নম্বরে ফোন করুন"
     ]
+  },
+  "_en": "English renderings of the lines above, shown on the dashboard so non-Bangla readers can see what residents receive. Alerts themselves go out in Bangla.",
+  "drivers_en": {
+    "log_runoff": "heavy rain is forecast, and with so much paved ground the water will collect on the streets quickly",
+    "twi_z": "the area is low and water from around it flows here",
+    "low_elev_share": "much of the ward lies below 4 m, so water drains away slowly",
+    "built_share": "dense buildings and paved roads keep rainwater from soaking into the ground",
+    "vulnerability": "many people here live in crowded housing or in households at higher risk"
+  },
+  "actions_en": {
+    "yellow": [
+      "Follow the rain news and local warnings",
+      "Keep the drain openings in front of homes and shops clear",
+      "Keep your phone charged"
+    ],
+    "orange": [
+      "Lift shop goods, electrical items and important papers off the floor",
+      "Put water, dry food, medicine and a torch together in one place",
+      "Avoid walking or driving through standing water"
+    ],
+    "red": [
+      "Move goods, medicine and papers up high now",
+      "Stay away from power lines, poles and open manholes in or near standing water",
+      "Check on elderly, young and sick neighbours",
+      "In an emergency, call 999"
+    ]
   }
 }

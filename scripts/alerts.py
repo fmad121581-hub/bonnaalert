@@ -1,4 +1,6 @@
-"""Step 4: write a Bangla alert for every ward at yellow or above.
+"""Step 4: write a Bangla alert for every ward at yellow or above, plus an
+English rendering of the template (alert_en) so the dashboard can show
+non-Bangla readers what residents receive.
 
 Default: deterministic templates built only from model outputs and the
 guidance file, so no number is ever invented. With --llm and an
@@ -62,6 +64,30 @@ def template_alert(w, guide):
         lines.append("কারণ: " + "; ".join(reasons) + "।")
     if acts:
         lines.append("করণীয়: " + " | ".join(acts))
+    return "\n".join(lines)
+
+
+def en_time(iso):
+    """'2026-10-19T21:00' -> '19 Oct, 9 pm'"""
+    t = datetime.fromisoformat(iso) if isinstance(iso, str) else iso
+    return f"{t.day} {t:%b}, {t.hour % 12 or 12} {'am' if t.hour < 12 else 'pm'}"
+
+
+def template_alert_en(w, guide):
+    """English rendering of template_alert for the dashboard; same facts, same order."""
+    drivers = as_list(w["drivers"])
+    reasons = [guide["drivers_en"][d] for d in drivers if d in guide["drivers_en"]][:2]
+    acts = guide["actions_en"].get(w["level"], [])[:3]
+    lines = [
+        f"{w['name']}: {w['level'].capitalize()}",
+        f"Chance of waterlogging in the next 72 hours: about {round(w['prob'] * 100)}%. "
+        f"Heaviest rain around {en_time(w['peak_time'])} "
+        f"(about {round(w['p24_max'])} mm in 24 hours).",
+    ]
+    if reasons:
+        lines.append("Why: " + "; ".join(reasons) + ".")
+    if acts:
+        lines.append("What to do: " + " | ".join(acts))
     return "\n".join(lines)
 
 
@@ -131,18 +157,24 @@ def main():
 
     guide = json.loads(config.GUIDANCE.read_text(encoding="utf-8"))
     g = gpd.read_file(config.WARDS_SCORED)
+    raw = json.loads(config.WARDS_SCORED.read_text(encoding="utf-8"))
+    # newer pyogrio drops list-valued fields ("unsupported OGR type: 5"), so take drivers from the raw file
+    raw_drivers = {f["properties"]["ward_id"]: f["properties"].get("drivers") for f in raw["features"]}
+    g["drivers"] = g["ward_id"].map(raw_drivers)
     sent = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%S+00:00")
     cap_dir = config.WEB_DATA / "cap"
     cap_dir.mkdir(parents=True, exist_ok=True)
     for f in cap_dir.glob("*.xml"):
         f.unlink()
 
-    texts, n_llm = [], 0
+    texts, texts_en, n_llm = [], [], 0
     for _, w in g.iterrows():
         if w["level"] == "green":
             texts.append("")
+            texts_en.append("")
             continue
         text = template_alert(w, guide)
+        texts_en.append(template_alert_en(w, guide))
         if args.llm and w["level"] in ("orange", "red"):
             try:
                 better = llm_rewrite(text, w, guide)
@@ -156,9 +188,10 @@ def main():
 
     # patch the raw GeoJSON so other fields keep the exact form score.py wrote
     by_id = dict(zip(g["ward_id"], texts))
-    raw = json.loads(config.WARDS_SCORED.read_text(encoding="utf-8"))
+    en_by_id = dict(zip(g["ward_id"], texts_en))
     for f in raw["features"]:
         f["properties"]["alert_bn"] = by_id.get(f["properties"]["ward_id"], "")
+        f["properties"]["alert_en"] = en_by_id.get(f["properties"]["ward_id"], "")
     config.WARDS_SCORED.write_text(json.dumps(raw, ensure_ascii=False, separators=(",", ":")),
                                    encoding="utf-8")
     n = sum(1 for t in texts if t)

@@ -13,6 +13,9 @@ a flood probability, weights it by how vulnerable the ward's people are, and wri
 Bangla alert that says why and what to do. A static web dashboard (`docs/`) shows the
 result; GitHub Pages serves it and GitHub Actions keeps it fresh.
 
+Alerts are written in Bangla because that is what residents read. The dashboard opens in English
+(`?lang=bn` or the switch for Bangla) and shows an English translation under each Bangla alert.
+
 ## How a score is made
 
 | Step | What happens | Script |

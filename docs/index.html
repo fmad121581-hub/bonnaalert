@@ -1,10 +1,10 @@
 <!doctype html>
-<html lang="bn">
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>BonnaAlert Dhaka</title>
-<meta name="description" content="ঢাকার প্রতিটি ওয়ার্ডের জন্য ৭২ ঘণ্টা আগাম বন্যা ও জলাবদ্ধতার সতর্কতা">
+<meta name="description" content="72-hour flood and waterlogging early warning for every ward in Dhaka, with alerts in Bangla">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Anek+Bangla:wdth,wght@75..100,500..800&family=Hind+Siliguri:wght@400;500;600&display=swap" rel="stylesheet">
@@ -47,6 +47,7 @@ button{font:inherit;color:inherit}
 .legend span::before{content:"";display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:5px;background:var(--c)}
 .meta{font-size:13px;color:var(--muted);margin-top:12px}
 .demo{display:inline-block;background:var(--ink);color:var(--silt);border-radius:4px;padding:0 7px;margin-right:6px;font-size:12.5px}
+.lang{margin-left:auto;align-self:center;font-size:13.5px;background:none;border:1px solid var(--line);border-radius:6px;padding:2px 10px;cursor:pointer}
 .runs{display:flex;gap:6px;margin-top:12px}
 .runs button{font-size:13.5px;color:var(--ink);background:none;border:1px solid var(--line);border-radius:6px;padding:3px 10px;cursor:pointer}
 .runs button[aria-pressed=true]{background:var(--ink);color:var(--silt);border-color:var(--ink)}
@@ -84,6 +85,8 @@ button{font:inherit;color:inherit}
 .why li{display:grid;grid-template-columns:1fr 110px;gap:10px;align-items:center;font-size:14.5px;padding:4px 0}
 .why .bar{height:8px;border-radius:4px;background:var(--line);overflow:hidden}
 .why .bar i{display:block;height:100%;background:var(--ink)}
+.alert.en{border-left-color:var(--line);font-size:14px;color:var(--muted)}
+.cap{font-size:12.5px;color:var(--muted);margin:14px 0 6px}
 .alert{white-space:pre-wrap;background:var(--paper);border:1px solid var(--line);border-left:4px solid var(--c);border-radius:6px;padding:12px 14px;font-size:15px;line-height:1.6}
 .row{display:flex;gap:10px;align-items:center;margin-top:10px;flex-wrap:wrap}
 .btn{border:1px solid var(--ink);background:var(--ink);color:var(--silt);border-radius:6px;padding:6px 14px;cursor:pointer}
@@ -107,50 +110,115 @@ button{font:inherit;color:inherit}
 <body>
 <div class="app">
     <header class="head">
-      <h1 class="brand"><b>BonnaAlert</b><span>ঢাকা ওয়ার্ড সতর্কতা</span></h1>
-      <p class="status" id="status">পূর্বাভাস লোড হচ্ছে…</p>
+      <h1 class="brand"><b>BonnaAlert</b><span data-t="sub">Dhaka ward alerts</span><button type="button" class="lang" id="lang" lang="bn">বাংলা</button></h1>
+      <p class="status" id="status" data-t="loading">Loading forecast…</p>
       <div class="levelbar" id="levelbar" aria-hidden="true"></div>
       <div class="legend" id="legend"></div>
       <div class="meta" id="meta"></div>
-      <div class="runs" role="group" aria-label="কোন রান দেখবেন">
-        <button type="button" id="run-live" data-run="">এখনকার পূর্বাভাস</button>
-        <button type="button" id="run-replay" data-run="replay-2023-09-21">২১ সেপ্টেম্বর ২০২৩ রিপ্লে</button>
+      <div class="runs" role="group" data-t-label="runs" aria-label="Which run to show">
+        <button type="button" id="run-live" data-run="" data-t="live">Current forecast</button>
+        <button type="button" id="run-replay" data-run="replay-2023-09-21" data-t="replay">21 Sep 2023 replay</button>
       </div>
-      <p class="note">ব্যক্তিগত প্রোটোটাইপ, সরকারি সতর্কবার্তা নয়। সরকারি তথ্যের জন্য আবহাওয়া অধিদপ্তর (BMD) ও দুর্যোগ ব্যবস্থাপনা অধিদপ্তর (DDM) দেখুন। · <a href="https://github.com/fmad121581-hub/bonnaalert">কোড ও পদ্ধতি</a></p>
+      <p class="note"><span data-t="disclaimer">Personal prototype, not an official warning.</span> · <a href="https://github.com/fmad121581-hub/bonnaalert" data-t="code">Code and method</a></p>
     </header>
   <main class="main">
-    <div id="map" role="region" aria-label="ওয়ার্ড ঝুঁকির মানচিত্র"></div>
-    <section class="card" id="card" aria-live="polite"><p class="empty">একটি ওয়ার্ড বেছে নিন।</p></section>
+    <div id="map" role="region" data-t-label="mapLabel" aria-label="Ward risk map"></div>
+    <section class="card" id="card" aria-live="polite"><p class="empty" data-t="pick">Pick a ward.</p></section>
   </main>
-  <ol class="list" id="list" aria-label="ঝুঁকি অনুযায়ী ওয়ার্ডের তালিকা"></ol>
+  <ol class="list" id="list" data-t-label="listLabel" aria-label="Wards by risk"></ol>
 </div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
 <script>
 const LEVELS = {
-  red:{bn:"লাল", act:"এখনই ব্যবস্থা নিন", c:"var(--red)", hex:"#B3261E"},
-  orange:{bn:"কমলা", act:"প্রস্তুতি নিন", c:"var(--orange)", hex:"#D2621C"},
-  yellow:{bn:"হলুদ", act:"সতর্ক থাকুন", c:"var(--yellow)", hex:"#C9971A"},
-  green:{bn:"সবুজ", act:"ঝুঁকি কম", c:"var(--green)", hex:"#4B8B5A"}
+  red:{bn:"লাল", act:"এখনই ব্যবস্থা নিন", en:"Red", act_en:"Act now", c:"var(--red)", hex:"#B3261E"},
+  orange:{bn:"কমলা", act:"প্রস্তুতি নিন", en:"Orange", act_en:"Get ready", c:"var(--orange)", hex:"#D2621C"},
+  yellow:{bn:"হলুদ", act:"সতর্ক থাকুন", en:"Yellow", act_en:"Stay alert", c:"var(--yellow)", hex:"#C9971A"},
+  green:{bn:"সবুজ", act:"ঝুঁকি কম", en:"Green", act_en:"Low risk", c:"var(--green)", hex:"#4B8B5A"}
 };
-const DRIVER_BN = {
-  log_runoff:"বৃষ্টির পানি গড়িয়ে জমা (রানঅফ)",
-  twi_z:"নিচু, পানি জমার প্রবণ ভূমি",
-  low_elev_share:"৪ মিটারের নিচের জমি",
-  built_share:"পাকা ও দালানঘেরা এলাকা"
+const DRIVERS = {
+  bn:{log_runoff:"বৃষ্টির পানি গড়িয়ে জমা (রানঅফ)", twi_z:"নিচু, পানি জমার প্রবণ ভূমি", low_elev_share:"৪ মিটারের নিচের জমি", built_share:"পাকা ও দালানঘেরা এলাকা"},
+  en:{log_runoff:"Rain running off and pooling (runoff)", twi_z:"Low ground where water collects", low_elev_share:"Land below 4 m", built_share:"Paved, built-up area"}
+};
+// interface text; alerts themselves are always written in Bangla (alert_en is a translation for readers)
+const T = {
+  bn:{
+    sub:"ঢাকা ওয়ার্ড সতর্কতা", loading:"পূর্বাভাস লোড হচ্ছে…", live:"এখনকার পূর্বাভাস", replay:"২১ সেপ্টেম্বর ২০২৩ রিপ্লে",
+    runs:"কোন রান দেখবেন", mapLabel:"ওয়ার্ড ঝুঁকির মানচিত্র", listLabel:"ঝুঁকি অনুযায়ী ওয়ার্ডের তালিকা", pick:"একটি ওয়ার্ড বেছে নিন।",
+    disclaimer:"ব্যক্তিগত প্রোটোটাইপ, সরকারি সতর্কবার্তা নয়। সরকারি তথ্যের জন্য আবহাওয়া অধিদপ্তর (BMD) ও দুর্যোগ ব্যবস্থাপনা অধিদপ্তর (DDM) দেখুন।",
+    code:"কোড ও পদ্ধতি", other:"English",
+    nodata:"ডেটা পাওয়া যায়নি। পাইপলাইন চালিয়ে docs/data ফোল্ডার তৈরি করুন।",
+    next72:"আগামী ৭২ ঘণ্টায়", that72:"সেই ৭২ ঘণ্টায়", replayPrefix:"রিপ্লে: ",
+    hot:(when,n,p) => `${when} ${n}টি ওয়ার্ডে জলাবদ্ধতার বড় ঝুঁকি, প্রায় ${p} মানুষ`,
+    yellowOnly:n => `বড় ঝুঁকি নেই, ${n}টি ওয়ার্ডে সতর্ক থাকার মতো বৃষ্টি`,
+    none:when => `${when} কোনো ওয়ার্ডে জলাবদ্ধতার ঝুঁকি নেই`,
+    demo:"ডেমো ডেটা", replayTag:"রিপ্লে", archiveTag:"আর্কাইভ বৃষ্টি (ERA5)",
+    replayScaled:"১৯–২২ সেপ্টেম্বর ২০২৩ এর ERA5 বৃষ্টির ধরন, BMD-র মাপা ১১৩ মিমি অনুযায়ী বাড়ানো। ",
+    replayRaw:"১৯–২২ সেপ্টেম্বর ২০২৩ এর বৃষ্টি দিয়ে চালানো। ",
+    updated:t => `হালনাগাদ ${t}। `, model:"মডেল: ",
+    rain24:mm => `২৪ ঘণ্টায় ${mm} মিমি বৃষ্টি`,
+    rainAria:mm => `প্রতি ঘণ্টার বৃষ্টির পূর্বাভাস, সর্বোচ্চ ${mm} মিমি`, peak:mm => `সর্বোচ্চ ${mm} মিমি/ঘণ্টা`,
+    prob:"জলাবদ্ধতার সম্ভাবনা", mm24:"মিমি, সর্বোচ্চ ২৪ ঘণ্টায়", people:"মানুষ এই ওয়ার্ডে",
+    rainNext:"আগামী ৭২ ঘণ্টার বৃষ্টি", rainThat:"সেই ৭২ ঘণ্টার বৃষ্টি", why:"ঝুঁকি কেন",
+    vuln:"জনগোষ্ঠীর ঝুঁকি (ঘনবসতি, নিচু এলাকা)", alert:"সতর্কবার্তা", translation:"",
+    copy:"বার্তা কপি করুন", copied:"কপি হয়েছে", selected:"লেখাটি নির্বাচিত, Ctrl+C চাপুন", cap:"CAP ফাইল খুলুন",
+    noAlert:"এই ওয়ার্ডের জন্য এখন কোনো সতর্কবার্তা নেই।",
+    scoreNote:r => `ঝুঁকি স্কোর ${r} = সম্ভাবনা × জনগোষ্ঠীর ঝুঁকির ভার। প্রোটোটাইপ: করণীয় অংশ খসড়া, সরকারি নির্দেশনা দিয়ে হালনাগাদ করা হবে।`
+  },
+  en:{
+    sub:"Dhaka ward alerts", loading:"Loading forecast…", live:"Current forecast", replay:"21 Sep 2023 replay",
+    runs:"Which run to show", mapLabel:"Ward risk map", listLabel:"Wards by risk", pick:"Pick a ward.",
+    disclaimer:"Personal prototype, not an official warning. For official information, follow the Bangladesh Meteorological Department (BMD) and the Department of Disaster Management (DDM).",
+    code:"Code and method", other:"বাংলা",
+    nodata:"No data found. Run the pipeline to create the docs/data folder.",
+    next72:"over the next 72 hours", that72:"over those 72 hours", replayPrefix:"Replay: ",
+    hot:(when,n,p) => `High waterlogging risk in ${n} ward${n == 1 ? "" : "s"} ${when}, about ${p} people`,
+    yellowOnly:n => `No high risk; rain worth watching in ${n} ward${n == 1 ? "" : "s"}`,
+    none:when => `No waterlogging risk in any ward ${when}`,
+    demo:"Demo data", replayTag:"Replay", archiveTag:"Archive rain (ERA5)",
+    replayScaled:"ERA5 rain pattern for 19–22 Sep 2023, scaled up to the 113 mm that BMD measured. ",
+    replayRaw:"Run with the rain of 19–22 Sep 2023. ",
+    updated:t => `Updated ${t}. `, model:"Model: ",
+    rain24:mm => `${mm} mm rain in 24 h`,
+    rainAria:mm => `Hourly rain forecast, peak ${mm} mm`, peak:mm => `peak ${mm} mm/h`,
+    prob:"chance of waterlogging", mm24:"mm in the wettest 24 h", people:"people in this ward",
+    rainNext:"Rain over the next 72 hours", rainThat:"Rain over those 72 hours", why:"Why the risk",
+    vuln:"Vulnerable population (crowding, low-lying areas)", alert:"Alert, as residents receive it (Bangla)", translation:"English translation",
+    copy:"Copy alert (Bangla)", copied:"Copied", selected:"Text selected, press Ctrl+C", cap:"Open CAP file",
+    noAlert:"No alert for this ward right now.",
+    scoreNote:r => `Risk score ${r} = probability × population vulnerability weight. Prototype: the action advice is a draft, to be updated with official guidance.`
+  }
 };
 const MONTHS = ["জানুয়ারি","ফেব্রুয়ারি","মার্চ","এপ্রিল","মে","জুন","জুলাই","আগস্ট","সেপ্টেম্বর","অক্টোবর","নভেম্বর","ডিসেম্বর"];
+const MONTHS_EN = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+// English by default (most visitors read English); ?lang=bn or the switch picks Bangla, remembered per browser
+let LANG = (() => {
+  const q = new URLSearchParams(location.search).get("lang");
+  if (q === "bn" || q === "en") return q;
+  try { return localStorage.getItem("bonna-lang") === "bn" ? "bn" : "en"; } catch (e) { return "en"; }
+})();
+const t = () => T[LANG];
 const bn = x => String(x).replace(/\d/g, d => "০১২৩৪৫৬৭৮৯"[d]);
-const pct = x => bn(Math.round(x * 100)) + "%";
-const big = n => n >= 1e5 ? bn((n/1e5).toFixed(1)) + " লাখ" : bn(Math.round(n/1e3)) + " হাজার";
+const num = x => LANG === "bn" ? bn(x) : String(x);
+const pct = x => num(Math.round(x * 100)) + "%";
+const big = n => LANG === "bn"
+  ? (n >= 1e5 ? bn((n/1e5).toFixed(1)) + " লাখ" : bn(Math.round(n/1e3)) + " হাজার")
+  : (n >= 1e6 ? (n/1e6).toFixed(1) + " million" : n.toLocaleString("en-US", {maximumSignificantDigits:2}));
+const lvl = k => LANG === "bn" ? LEVELS[k].bn : LEVELS[k].en;
 const parse = v => typeof v === "string" ? (()=>{ try { return JSON.parse(v) } catch { return v } })() : v;
 function bnTime(iso){
   const [d,t] = iso.split("T"); const h = +t.slice(0,2);
   const part = h>=4&&h<6?"ভোর":h<12&&h>=6?"সকাল":h>=12&&h<15?"দুপুর":h>=15&&h<18?"বিকেল":h>=18&&h<20?"সন্ধ্যা":"রাত";
   return `${bn(+d.slice(8))} ${MONTHS[+d.slice(5,7)-1]}, ${part} ${bn(h%12||12)}টা`;
 }
+// "21 Sep, 9 pm"; with minutes "21 Sep, 9:05 pm"
+function enTime(iso, withMin){
+  const [d,t] = iso.split("T"); const h = +t.slice(0,2);
+  return `${+d.slice(8)} ${MONTHS_EN[+d.slice(5,7)-1]}, ${h%12||12}${withMin ? ":" + t.slice(3,5) : ""} ${h<12?"am":"pm"}`;
+}
+const fmtTime = iso => LANG === "bn" ? bnTime(iso) : enTime(iso, false);
 
-let wards = [], hourly = null, layerById = {}, selected = null, map, geo, RUN = "", BASE = "data/";
+let wards = [], hourly = null, summary = null, layerById = {}, selected = null, map, geo, RUN = "", BASE = "data/";
 const tok = name => getComputedStyle(document.documentElement).getPropertyValue(name).trim();
 // GitHub Pages (and a local server) can load map tiles and offer CAP files; the Claude artifact frame cannot
 const OPEN_WEB = /github\.io$|^localhost$|^127\.0\.0\.1$/.test(location.hostname);
@@ -168,8 +236,8 @@ function load(run){
     getJSON(BASE + "wards_scored.geojson"),
     getJSON(BASE + "summary.json"),
     getJSON(BASE + "hourly.json").catch(() => null)
-  ]).then(([gj, summary, hr]) => {
-    hourly = hr; selected = null; layerById = {};
+  ]).then(([gj, sm, hr]) => {
+    hourly = hr; summary = sm; selected = null; layerById = {};
     gj.features.forEach(f => { f.properties.drivers = parse(f.properties.drivers) || []; f.properties.contrib = parse(f.properties.contrib) || {}; });
     wards = gj.features.slice().sort((a,b) => a.properties.rank - b.properties.rank);
     renderHeader(summary);
@@ -177,10 +245,29 @@ function load(run){
     renderList();
     select(wards[0].properties.ward_id, false);
   }).catch(err => {
-    document.getElementById("status").textContent = "ডেটা পাওয়া যায়নি। পাইপলাইন চালিয়ে docs/data ফোল্ডার তৈরি করুন।";
+    document.getElementById("status").textContent = t().nodata;
     console.error(err);
   });
 }
+
+function applyLang(){
+  document.documentElement.lang = LANG;
+  document.querySelectorAll("[data-t]").forEach(el => { el.textContent = t()[el.dataset.t]; });
+  document.querySelectorAll("[data-t-label]").forEach(el => el.setAttribute("aria-label", t()[el.dataset.tLabel]));
+  const sw = document.getElementById("lang");
+  sw.textContent = t().other; sw.lang = LANG === "bn" ? "en" : "bn";
+}
+document.getElementById("lang").addEventListener("click", () => {
+  LANG = LANG === "bn" ? "en" : "bn";
+  try { localStorage.setItem("bonna-lang", LANG); } catch (e) {}
+  applyLang();
+  if (!summary) return;
+  renderHeader(summary);
+  renderList();
+  Object.values(layerById).forEach(l => l.setTooltipContent(`${l.feature.properties.name}: ${lvl(l.feature.properties.level)}`));
+  if (selected) select(selected, false);
+});
+applyLang();
 document.querySelector(".runs").addEventListener("click", e => {
   const b = e.target.closest("button[data-run]"); if (b && b.dataset.run !== RUN) load(b.dataset.run);
 });
@@ -193,23 +280,23 @@ load(runFromHash());
 
 function renderHeader(s){
   const c = s.counts, n = s.n_wards;
-  const hot = c.red + c.orange;
-  document.getElementById("status").textContent = hot
-    ? `আগামী ৭২ ঘণ্টায় ${bn(hot)}টি ওয়ার্ডে জলাবদ্ধতার বড় ঝুঁকি, প্রায় ${big(s.people_orange_red)} মানুষ`
-    : (s.counts.yellow ? `বড় ঝুঁকি নেই, ${bn(s.counts.yellow)}টি ওয়ার্ডে সতর্ক থাকার মতো বৃষ্টি` : "আগামী ৭২ ঘণ্টায় কোনো ওয়ার্ডে জলাবদ্ধতার ঝুঁকি নেই");
-  if (s.forecast_source.startsWith("replay")) document.getElementById("status").textContent = "রিপ্লে: " + document.getElementById("status").textContent.replace("আগামী ৭২ ঘণ্টায়", "সেই ৭২ ঘণ্টায়");
+  const hot = c.red + c.orange, isReplay = s.forecast_source.startsWith("replay");
+  const when = isReplay ? t().that72 : t().next72;
+  document.getElementById("status").textContent = (isReplay ? t().replayPrefix : "") + (hot
+    ? t().hot(when, num(hot), big(s.people_orange_red))
+    : (c.yellow ? t().yellowOnly(num(c.yellow)) : t().none(when)));
   document.getElementById("levelbar").innerHTML = ["red","orange","yellow","green"]
     .map(k => `<i style="width:${100*c[k]/n}%;background:${LEVELS[k].c}"></i>`).join("");
   document.getElementById("legend").innerHTML = ["red","orange","yellow","green"]
-    .map(k => `<span style="--c:${LEVELS[k].c}">${LEVELS[k].bn} ${bn(c[k])}</span>`).join("");
+    .map(k => `<span style="--c:${LEVELS[k].c}">${lvl(k)} ${num(c[k])}</span>`).join("");
   const run = new Date(new Date(s.run_utc.replace("Z",":00Z")).getTime() + 6*3600e3).toISOString();
-  const local = bnTime(run.slice(0,16)) + " " + bn(run.slice(14,16)) + " মিনিট";
+  const local = LANG === "bn" ? bnTime(run.slice(0,16)) + " " + bn(run.slice(14,16)) + " মিনিট" : enTime(run.slice(0,16), true) + " (Dhaka)";
   document.getElementById("meta").innerHTML =
-    (s.forecast_source === "demo" ? `<span class="demo">ডেমো ডেটা</span>` : "") +
-    (s.forecast_source.startsWith("replay") ? (s.forecast_source.includes("scaled")
-      ? `<span class="demo">রিপ্লে</span>১৯–২২ সেপ্টেম্বর ২০২৩ এর ERA5 বৃষ্টির ধরন, BMD-র মাপা ১১৩ মিমি অনুযায়ী বাড়ানো। `
-      : `<span class="demo">আর্কাইভ বৃষ্টি (ERA5)</span>১৯–২২ সেপ্টেম্বর ২০২৩ এর বৃষ্টি দিয়ে চালানো। `) : `হালনাগাদ ${local}। `) +
-    `মডেল: ${s.model}`;
+    (s.forecast_source === "demo" ? `<span class="demo">${t().demo}</span>` : "") +
+    (isReplay ? (s.forecast_source.includes("scaled")
+      ? `<span class="demo">${t().replayTag}</span>${t().replayScaled}`
+      : `<span class="demo">${t().archiveTag}</span>${t().replayRaw}`) : t().updated(local)) +
+    `${t().model}${s.model}`;
 }
 
 function renderMap(gj){
@@ -225,7 +312,7 @@ function renderMap(gj){
     style: f => ({color:tok("--panel"), weight:.8, fillColor:tok("--" + f.properties.level), fillOpacity:.62}),
     onEachFeature: (f, layer) => {
       layerById[f.properties.ward_id] = layer;
-      layer.bindTooltip(`${f.properties.name}: ${LEVELS[f.properties.level].bn}`, {sticky:true});
+      layer.bindTooltip(`${f.properties.name}: ${lvl(f.properties.level)}`, {sticky:true});
       layer.on("click", () => select(f.properties.ward_id, false));
     }
   }).addTo(map);
@@ -239,8 +326,8 @@ function renderList(){
   document.getElementById("list").innerHTML = wards.map(f => {
     const p = f.properties, L_ = LEVELS[p.level];
     return `<li><button data-id="${p.ward_id}" aria-pressed="false">
-      <span class="rk">${bn(p.rank)}</span>
-      <span class="wn">${p.name}<small>২৪ ঘণ্টায় ${bn(Math.round(p.p24_max))} মিমি বৃষ্টি</small></span>
+      <span class="rk">${num(p.rank)}</span>
+      <span class="wn">${p.name}<small>${t().rain24(num(Math.round(p.p24_max)))}</small></span>
       <span class="rv"><span class="dot" style="background:${L_.c}"></span>${pct(p.risk)}</span>
     </button></li>`;
   }).join("");
@@ -263,37 +350,40 @@ function rainStrip(id, level){
   const r = hourly.rain_mm[id], t = hourly.times, W = 336, H = 92, bw = W / r.length;
   const max = Math.max(4, ...r), pk = r.indexOf(Math.max(...r));
   const bars = r.map((v,i) => `<rect x="${(i*bw).toFixed(1)}" y="${(H-18-(v/max)*(H-34)).toFixed(1)}" width="${(bw-.8).toFixed(1)}" height="${((v/max)*(H-34)).toFixed(1)}" class="bar${i===pk?" peak":""}"${i===pk?` style="fill:var(--${level})"`:""}/>`).join("");
-  const ticks = [0,24,48].map(h => `<text class="tick" x="${(h*bw+2).toFixed(1)}" y="${H-3}">${t[h]?bnTime(t[h]).split(",")[0]:""}</text><line x1="${(h*bw).toFixed(1)}" x2="${(h*bw).toFixed(1)}" y1="10" y2="${H-16}" class="grid"/>`).join("");
-  return `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="প্রতি ঘণ্টার বৃষ্টির পূর্বাভাস, সর্বোচ্চ ${bn(r[pk])} মিমি">${ticks}${bars}
-    <text class="lbl" x="${Math.min(W-90, pk*bw+6).toFixed(1)}" y="12">সর্বোচ্চ ${bn(r[pk])} মিমি/ঘণ্টা</text></svg>`;
+  const ticks = [0,24,48].map(h => `<text class="tick" x="${(h*bw+2).toFixed(1)}" y="${H-3}">${t[h]?fmtTime(t[h]).split(",")[0]:""}</text><line x1="${(h*bw).toFixed(1)}" x2="${(h*bw).toFixed(1)}" y1="10" y2="${H-16}" class="grid"/>`).join("");
+  return `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="${T[LANG].rainAria(num(r[pk]))}">${ticks}${bars}
+    <text class="lbl" x="${Math.min(W-90, pk*bw+6).toFixed(1)}" y="12">${T[LANG].peak(num(r[pk]))}</text></svg>`;
 }
 
 function renderCard(p){
   const L_ = LEVELS[p.level];
-  const contrib = Object.entries(p.contrib).filter(([k,v]) => v > 0 && DRIVER_BN[k]).sort((a,b) => b[1]-a[1]);
+  const D = DRIVERS[LANG], esc = s => s.replace(/&/g,"&amp;").replace(/</g,"&lt;");
+  const contrib = Object.entries(p.contrib).filter(([k,v]) => v > 0 && D[k]).sort((a,b) => b[1]-a[1]);
   const cmax = Math.max(0.01, ...contrib.map(c => c[1]));
-  const why = contrib.map(([k,v]) => `<li><span>${DRIVER_BN[k]}</span><span class="bar"><i style="width:${100*v/cmax}%"></i></span></li>`).join("")
-    + `<li><span>জনগোষ্ঠীর ঝুঁকি (ঘনবসতি, নিচু এলাকা)</span><span class="bar"><i style="width:${100*p.vuln_norm}%;background:var(--river)"></i></span></li>`;
-  const capLink = OPEN_WEB && (p.level === "red" || p.level === "orange") ? `<a class="btn ghost" href="${BASE}cap/${p.ward_id}.xml" target="_blank" rel="noopener">CAP ফাইল খুলুন</a>` : "";
+  const why = contrib.map(([k,v]) => `<li><span>${D[k]}</span><span class="bar"><i style="width:${100*v/cmax}%"></i></span></li>`).join("")
+    + `<li><span>${t().vuln}</span><span class="bar"><i style="width:${100*p.vuln_norm}%;background:var(--river)"></i></span></li>`;
+  const capLink = OPEN_WEB && (p.level === "red" || p.level === "orange") ? `<a class="btn ghost" href="${BASE}cap/${p.ward_id}.xml" target="_blank" rel="noopener">${t().cap}</a>` : "";
+  // the Bangla alert is what residents get; in English mode its translation sits underneath
+  const en = LANG === "en" && p.alert_en ? `<p class="cap">${t().translation}</p><div class="alert en" lang="en">${esc(p.alert_en)}</div>` : "";
   document.getElementById("card").innerHTML = `
     <h2>${p.name}</h2>
-    <span class="badge" style="background:${L_.c}">${L_.bn}: ${L_.act}</span>
+    <span class="badge" style="background:${L_.c}">${lvl(p.level)}: ${LANG === "bn" ? L_.act : L_.act_en}</span>
     <div class="nums">
-      <div><b>${pct(p.prob)}</b><span>জলাবদ্ধতার সম্ভাবনা</span></div>
-      <div><b>${bn(Math.round(p.p24_max))}</b><span>মিমি, সর্বোচ্চ ২৪ ঘণ্টায়</span></div>
-      <div><b>${bn(Math.round(p.pop_total).toLocaleString("en-IN"))}</b><span>মানুষ এই ওয়ার্ডে</span></div>
+      <div><b>${pct(p.prob)}</b><span>${t().prob}</span></div>
+      <div><b>${num(Math.round(p.p24_max))}</b><span>${t().mm24}</span></div>
+      <div><b>${num(Math.round(p.pop_total).toLocaleString("en-IN"))}</b><span>${t().people}</span></div>
     </div>
-    <h3>${RUN ? "সেই ৭২ ঘণ্টার বৃষ্টি" : "আগামী ৭২ ঘণ্টার বৃষ্টি"}</h3>
+    <h3>${RUN ? t().rainThat : t().rainNext}</h3>
     <div class="rain">${rainStrip(p.ward_id, p.level)}</div>
-    <h3>ঝুঁকি কেন</h3>
+    <h3>${t().why}</h3>
     <ul class="why">${why}</ul>
-    ${p.alert_bn ? `<h3>সতর্কবার্তা</h3><div class="alert" style="--c:${L_.c}">${p.alert_bn.replace(/&/g,"&amp;").replace(/</g,"&lt;")}</div>
-    <div class="row"><button class="btn" id="copy">বার্তা কপি করুন</button>${capLink}</div>` : `<p class="note">এই ওয়ার্ডের জন্য এখন কোনো সতর্কবার্তা নেই।</p>`}
-    <p class="note">ঝুঁকি স্কোর ${pct(p.risk)} = সম্ভাবনা × জনগোষ্ঠীর ঝুঁকির ভার। প্রোটোটাইপ: করণীয় অংশ খসড়া, সরকারি নির্দেশনা দিয়ে হালনাগাদ করা হবে।</p>`;
+    ${p.alert_bn ? `<h3>${t().alert}</h3><div class="alert" lang="bn" style="--c:${L_.c}">${esc(p.alert_bn)}</div>
+    ${en}<div class="row"><button class="btn" id="copy">${t().copy}</button>${capLink}</div>` : `<p class="note">${t().noAlert}</p>`}
+    <p class="note">${t().scoreNote(pct(p.risk))}</p>`;
   const copy = document.getElementById("copy");
   if (copy) copy.onclick = () => {
-    const done = () => { copy.textContent = "কপি হয়েছে"; };
-    const fallback = () => { const r = document.createRange(); r.selectNodeContents(document.querySelector(".alert")); const sel = getSelection(); sel.removeAllRanges(); sel.addRange(r); copy.textContent = "লেখাটি নির্বাচিত, Ctrl+C চাপুন"; };
+    const done = () => { copy.textContent = t().copied; };
+    const fallback = () => { const r = document.createRange(); r.selectNodeContents(document.querySelector(".alert")); const sel = getSelection(); sel.removeAllRanges(); sel.addRange(r); copy.textContent = t().selected; };
     try { navigator.clipboard.writeText(p.alert_bn).then(done, fallback); } catch (e) { fallback(); }
   };
 }
