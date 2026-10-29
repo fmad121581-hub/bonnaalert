@@ -1,5 +1,5 @@
 {
- "run_utc": "2026-10-29T02:57Z",
+ "run_utc": "2026-10-29T17:37Z",
  "model": "v0 expert-prior logistic (not yet calibrated)",
  "forecast_source": "open-meteo",
  "n_wards": 203,
@@ -10,18 +10,18 @@
   "green": 203
  },
  "people_orange_red": 0,
- "city_p24_max": 7.0,
+ "city_p24_max": 3.3,
  "top": [
-  {
-   "ward_id": "W196",
-   "name": "Mahmudpur",
-   "risk": 0.063,
-   "level": "green"
-  },
   {
    "ward_id": "W122",
    "name": "Zinjira",
    "risk": 0.035,
+   "level": "green"
+  },
+  {
+   "ward_id": "W076",
+   "name": "Shyampur",
+   "risk": 0.028,
    "level": "green"
   },
   {
@@ -31,9 +31,9 @@
    "level": "green"
   },
   {
-   "ward_id": "W076",
-   "name": "Shyampur",
-   "risk": 0.028,
+   "ward_id": "W196",
+   "name": "Mahmudpur",
+   "risk": 0.022,
    "level": "green"
   },
   {
