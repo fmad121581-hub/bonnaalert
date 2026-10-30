@@ -1,5 +1,5 @@
 {
- "run_utc": "2026-10-30T03:01Z",
+ "run_utc": "2026-10-30T17:16Z",
  "model": "v0 expert-prior logistic (not yet calibrated)",
  "forecast_source": "open-meteo",
  "n_wards": 203,
@@ -10,24 +10,12 @@
   "green": 203
  },
  "people_orange_red": 0,
- "city_p24_max": 18.9,
+ "city_p24_max": 4.1,
  "top": [
-  {
-   "ward_id": "W196",
-   "name": "Mahmudpur",
-   "risk": 0.076,
-   "level": "green"
-  },
   {
    "ward_id": "W122",
    "name": "Zinjira",
    "risk": 0.035,
-   "level": "green"
-  },
-  {
-   "ward_id": "W043",
-   "name": "Ward No-76 (Part), Jatrabari",
-   "risk": 0.028,
    "level": "green"
   },
   {
@@ -37,8 +25,20 @@
    "level": "green"
   },
   {
+   "ward_id": "W043",
+   "name": "Ward No-76 (Part), Jatrabari",
+   "risk": 0.028,
+   "level": "green"
+  },
+  {
    "ward_id": "W071",
    "name": "Ward No-88",
+   "risk": 0.021,
+   "level": "green"
+  },
+  {
+   "ward_id": "W196",
+   "name": "Mahmudpur",
    "risk": 0.021,
    "level": "green"
   },
@@ -63,13 +63,13 @@
   {
    "ward_id": "W021",
    "name": "Ward No-92",
-   "risk": 0.014,
+   "risk": 0.013,
    "level": "green"
   },
   {
-   "ward_id": "W134",
-   "name": "Amin Bazar",
-   "risk": 0.014,
+   "ward_id": "W062",
+   "name": "Ward No-80 (Part), Gendaria",
+   "risk": 0.011,
    "level": "green"
   }
  ]
