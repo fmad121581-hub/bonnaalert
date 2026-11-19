@@ -1,75 +1,75 @@
 {
- "run_utc": "2026-11-19T04:35Z",
+ "run_utc": "2026-11-19T19:39Z",
  "model": "v0 expert-prior logistic (not yet calibrated)",
  "forecast_source": "open-meteo",
  "n_wards": 203,
  "counts": {
-  "red": 9,
-  "orange": 53,
-  "yellow": 68,
-  "green": 73
+  "red": 4,
+  "orange": 26,
+  "yellow": 84,
+  "green": 89
  },
- "people_orange_red": 3777017,
- "city_p24_max": 83.9,
+ "people_orange_red": 2039550,
+ "city_p24_max": 102.9,
  "top": [
   {
    "ward_id": "W043",
    "name": "Ward No-76 (Part), Jatrabari",
-   "risk": 0.763,
+   "risk": 0.703,
    "level": "red"
   },
   {
    "ward_id": "W071",
    "name": "Ward No-88",
-   "risk": 0.714,
+   "risk": 0.651,
    "level": "red"
   },
   {
    "ward_id": "W076",
    "name": "Shyampur",
-   "risk": 0.709,
-   "level": "red"
-  },
-  {
-   "ward_id": "W021",
-   "name": "Ward No-92",
-   "risk": 0.682,
+   "risk": 0.645,
    "level": "red"
   },
   {
    "ward_id": "W122",
    "name": "Zinjira",
-   "risk": 0.675,
+   "risk": 0.624,
    "level": "red"
   },
   {
-   "ward_id": "W030",
-   "name": "Ward No-46, Mohammadpur",
-   "risk": 0.649,
-   "level": "red"
-  },
-  {
-   "ward_id": "W000",
-   "name": "Ward No-63 (Part), Bangshal",
-   "risk": 0.647,
-   "level": "red"
+   "ward_id": "W021",
+   "name": "Ward No-92",
+   "risk": 0.599,
+   "level": "orange"
   },
   {
    "ward_id": "W084",
    "name": "Sultanganj",
-   "risk": 0.643,
-   "level": "red"
+   "risk": 0.568,
+   "level": "orange"
+  },
+  {
+   "ward_id": "W000",
+   "name": "Ward No-63 (Part), Bangshal",
+   "risk": 0.546,
+   "level": "orange"
+  },
+  {
+   "ward_id": "W030",
+   "name": "Ward No-46, Mohammadpur",
+   "risk": 0.536,
+   "level": "orange"
   },
   {
    "ward_id": "W011",
    "name": "Dhania(part), Kadamtali",
-   "risk": 0.64,
-   "level": "red"
+   "risk": 0.529,
+   "level": "orange"
   },
   {
-   "ward_id": "W062",
-   "name": "Ward No-80 (Part), Gendaria",
-   "risk": 0.581,
+   "ward_id": "W196",
+   "name": "Mahmudpur",
+   "risk": 0.526,
    "level": "orange"
   }
  ]
