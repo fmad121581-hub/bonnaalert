@@ -1,75 +1,75 @@
 {
- "run_utc": "2026-11-18T19:39Z",
+ "run_utc": "2026-11-19T04:35Z",
  "model": "v0 expert-prior logistic (not yet calibrated)",
  "forecast_source": "open-meteo",
  "n_wards": 203,
  "counts": {
-  "red": 2,
-  "orange": 23,
-  "yellow": 83,
-  "green": 95
+  "red": 9,
+  "orange": 53,
+  "yellow": 68,
+  "green": 73
  },
- "people_orange_red": 1649690,
- "city_p24_max": 68.6,
+ "people_orange_red": 3777017,
+ "city_p24_max": 83.9,
  "top": [
   {
    "ward_id": "W043",
    "name": "Ward No-76 (Part), Jatrabari",
-   "risk": 0.685,
-   "level": "red"
-  },
-  {
-   "ward_id": "W122",
-   "name": "Zinjira",
-   "risk": 0.608,
+   "risk": 0.763,
    "level": "red"
   },
   {
    "ward_id": "W071",
    "name": "Ward No-88",
-   "risk": 0.588,
-   "level": "orange"
+   "risk": 0.714,
+   "level": "red"
   },
   {
    "ward_id": "W076",
    "name": "Shyampur",
-   "risk": 0.575,
-   "level": "orange"
+   "risk": 0.709,
+   "level": "red"
   },
   {
    "ward_id": "W021",
    "name": "Ward No-92",
-   "risk": 0.575,
-   "level": "orange"
+   "risk": 0.682,
+   "level": "red"
   },
   {
-   "ward_id": "W084",
-   "name": "Sultanganj",
-   "risk": 0.546,
-   "level": "orange"
-  },
-  {
-   "ward_id": "W000",
-   "name": "Ward No-63 (Part), Bangshal",
-   "risk": 0.517,
-   "level": "orange"
+   "ward_id": "W122",
+   "name": "Zinjira",
+   "risk": 0.675,
+   "level": "red"
   },
   {
    "ward_id": "W030",
    "name": "Ward No-46, Mohammadpur",
-   "risk": 0.504,
-   "level": "orange"
+   "risk": 0.649,
+   "level": "red"
   },
   {
-   "ward_id": "W196",
-   "name": "Mahmudpur",
-   "risk": 0.491,
-   "level": "orange"
+   "ward_id": "W000",
+   "name": "Ward No-63 (Part), Bangshal",
+   "risk": 0.647,
+   "level": "red"
+  },
+  {
+   "ward_id": "W084",
+   "name": "Sultanganj",
+   "risk": 0.643,
+   "level": "red"
+  },
+  {
+   "ward_id": "W011",
+   "name": "Dhania(part), Kadamtali",
+   "risk": 0.64,
+   "level": "red"
   },
   {
    "ward_id": "W062",
    "name": "Ward No-80 (Part), Gendaria",
-   "risk": 0.468,
+   "risk": 0.581,
    "level": "orange"
   }
  ]
