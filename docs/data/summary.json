@@ -1,75 +1,75 @@
 {
- "run_utc": "2026-11-20T04:24Z",
+ "run_utc": "2026-11-20T19:17Z",
  "model": "v0 expert-prior logistic (not yet calibrated)",
  "forecast_source": "open-meteo",
  "n_wards": 203,
  "counts": {
-  "red": 3,
-  "orange": 25,
-  "yellow": 82,
-  "green": 93
+  "red": 1,
+  "orange": 13,
+  "yellow": 55,
+  "green": 134
  },
- "people_orange_red": 1753056,
- "city_p24_max": 72.1,
+ "people_orange_red": 773092,
+ "city_p24_max": 56.5,
  "top": [
   {
    "ward_id": "W043",
    "name": "Ward No-76 (Part), Jatrabari",
-   "risk": 0.695,
-   "level": "red"
-  },
-  {
-   "ward_id": "W122",
-   "name": "Zinjira",
-   "risk": 0.618,
+   "risk": 0.619,
    "level": "red"
   },
   {
    "ward_id": "W071",
    "name": "Ward No-88",
-   "risk": 0.61,
-   "level": "red"
+   "risk": 0.572,
+   "level": "orange"
   },
   {
-   "ward_id": "W076",
-   "name": "Shyampur",
-   "risk": 0.592,
+   "ward_id": "W122",
+   "name": "Zinjira",
+   "risk": 0.548,
    "level": "orange"
   },
   {
    "ward_id": "W021",
    "name": "Ward No-92",
-   "risk": 0.589,
+   "risk": 0.497,
    "level": "orange"
   },
   {
    "ward_id": "W084",
    "name": "Sultanganj",
-   "risk": 0.559,
+   "risk": 0.472,
+   "level": "orange"
+  },
+  {
+   "ward_id": "W076",
+   "name": "Shyampur",
+   "risk": 0.445,
    "level": "orange"
   },
   {
    "ward_id": "W000",
    "name": "Ward No-63 (Part), Bangshal",
-   "risk": 0.534,
+   "risk": 0.428,
+   "level": "orange"
+  },
+  {
+   "ward_id": "W011",
+   "name": "Dhania(part), Kadamtali",
+   "risk": 0.41,
    "level": "orange"
   },
   {
    "ward_id": "W030",
    "name": "Ward No-46, Mohammadpur",
-   "risk": 0.523,
-   "level": "orange"
-  },
-  {
-   "ward_id": "W196",
-   "name": "Mahmudpur",
-   "risk": 0.495,
+   "risk": 0.402,
    "level": "orange"
   },
   {
    "ward_id": "W062",
    "name": "Ward No-80 (Part), Gendaria",
-   "risk": 0.482,
+   "risk": 0.389,
    "level": "orange"
   }
  ]
