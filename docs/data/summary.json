@@ -1,75 +1,75 @@
 {
- "run_utc": "2026-11-21T04:20Z",
+ "run_utc": "2026-11-21T18:17Z",
  "model": "v0 expert-prior logistic (not yet calibrated)",
  "forecast_source": "open-meteo",
  "n_wards": 203,
  "counts": {
   "red": 0,
   "orange": 0,
-  "yellow": 9,
-  "green": 194
+  "yellow": 0,
+  "green": 203
  },
  "people_orange_red": 0,
- "city_p24_max": 26.6,
+ "city_p24_max": 9.1,
  "top": [
   {
-   "ward_id": "W043",
-   "name": "Ward No-76 (Part), Jatrabari",
-   "risk": 0.325,
-   "level": "yellow"
+   "ward_id": "W122",
+   "name": "Zinjira",
+   "risk": 0.035,
+   "level": "green"
   },
   {
    "ward_id": "W196",
    "name": "Mahmudpur",
-   "risk": 0.297,
-   "level": "yellow"
+   "risk": 0.032,
+   "level": "green"
   },
   {
-   "ward_id": "W122",
-   "name": "Zinjira",
-   "risk": 0.267,
-   "level": "yellow"
-  },
-  {
-   "ward_id": "W021",
-   "name": "Ward No-92",
-   "risk": 0.23,
-   "level": "yellow"
-  },
-  {
-   "ward_id": "W071",
-   "name": "Ward No-88",
-   "risk": 0.21,
-   "level": "yellow"
-  },
-  {
-   "ward_id": "W084",
-   "name": "Sultanganj",
-   "risk": 0.207,
-   "level": "yellow"
+   "ward_id": "W043",
+   "name": "Ward No-76 (Part), Jatrabari",
+   "risk": 0.028,
+   "level": "green"
   },
   {
    "ward_id": "W076",
    "name": "Shyampur",
-   "risk": 0.187,
-   "level": "yellow"
+   "risk": 0.028,
+   "level": "green"
   },
   {
-   "ward_id": "W000",
-   "name": "Ward No-63 (Part), Bangshal",
-   "risk": 0.165,
-   "level": "yellow"
+   "ward_id": "W071",
+   "name": "Ward No-88",
+   "risk": 0.021,
+   "level": "green"
   },
   {
-   "ward_id": "W029",
-   "name": "Ward No-65",
-   "risk": 0.159,
-   "level": "yellow"
+   "ward_id": "W030",
+   "name": "Ward No-46, Mohammadpur",
+   "risk": 0.017,
+   "level": "green"
+  },
+  {
+   "ward_id": "W084",
+   "name": "Sultanganj",
+   "risk": 0.015,
+   "level": "green"
+  },
+  {
+   "ward_id": "W011",
+   "name": "Dhania(part), Kadamtali",
+   "risk": 0.014,
+   "level": "green"
+  },
+  {
+   "ward_id": "W021",
+   "name": "Ward No-92",
+   "risk": 0.013,
+   "level": "green"
   },
   {
    "ward_id": "W062",
    "name": "Ward No-80 (Part), Gendaria",
-   "risk": 0.149,
+   "risk": 0.011,
    "level": "green"
   }
  ]
